@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		904196C42B4D4C3F00C9A099 /* LoginSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904196C32B4D4C3F00C9A099 /* LoginSegmentController.swift */; };
+		904196C62B4D4C4D00C9A099 /* RegisterSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904196C52B4D4C4D00C9A099 /* RegisterSegmentController.swift */; };
 		9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060069C2B4D371100D04863 /* OnBoardController .swift */; };
 		9060069F2B4D376400D04863 /* centralGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9060069E2B4D376400D04863 /* centralGif.gif */; };
 		906006A22B4D391E00D04863 /* AuthPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906006A12B4D391E00D04863 /* AuthPageController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		904196C32B4D4C3F00C9A099 /* LoginSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSegmentController.swift; sourceTree = "<group>"; };
+		904196C52B4D4C4D00C9A099 /* RegisterSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSegmentController.swift; sourceTree = "<group>"; };
 		9060069C2B4D371100D04863 /* OnBoardController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnBoardController .swift"; sourceTree = "<group>"; };
 		9060069E2B4D376400D04863 /* centralGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = centralGif.gif; sourceTree = "<group>"; };
 		906006A12B4D391E00D04863 /* AuthPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageController.swift; sourceTree = "<group>"; };
@@ -45,10 +49,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		904196C22B4D4C2800C9A099 /* Segment Controller Page */ = {
+			isa = PBXGroup;
+			children = (
+				904196C32B4D4C3F00C9A099 /* LoginSegmentController.swift */,
+				904196C52B4D4C4D00C9A099 /* RegisterSegmentController.swift */,
+			);
+			path = "Segment Controller Page";
+			sourceTree = "<group>";
+		};
 		906006A02B4D390100D04863 /* Authentication Page */ = {
 			isa = PBXGroup;
 			children = (
 				906006A12B4D391E00D04863 /* AuthPageController.swift */,
+				904196C22B4D4C2800C9A099 /* Segment Controller Page */,
 			);
 			path = "Authentication Page";
 			sourceTree = "<group>";
@@ -187,6 +201,8 @@
 				9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */,
 				90616E092B493FFF0023A2E7 /* AppDelegate.swift in Sources */,
 				906006A22B4D391E00D04863 /* AuthPageController.swift in Sources */,
+				904196C62B4D4C4D00C9A099 /* RegisterSegmentController.swift in Sources */,
+				904196C42B4D4C3F00C9A099 /* LoginSegmentController.swift in Sources */,
 				90616E0B2B493FFF0023A2E7 /* SceneDelegate.swift in Sources */,
 				90616E242B4951670023A2E7 /* GifLoader.swift in Sources */,
 			);
