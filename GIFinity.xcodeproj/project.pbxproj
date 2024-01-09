@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060069C2B4D371100D04863 /* OnBoardController .swift */; };
+		9060069F2B4D376400D04863 /* centralGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9060069E2B4D376400D04863 /* centralGif.gif */; };
+		906006A22B4D391E00D04863 /* AuthPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906006A12B4D391E00D04863 /* AuthPageController.swift */; };
 		90616E092B493FFF0023A2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90616E082B493FFF0023A2E7 /* AppDelegate.swift */; };
 		90616E0B2B493FFF0023A2E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90616E0A2B493FFF0023A2E7 /* SceneDelegate.swift */; };
-		90616E0D2B493FFF0023A2E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90616E0C2B493FFF0023A2E7 /* ViewController.swift */; };
 		90616E102B493FFF0023A2E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90616E0E2B493FFF0023A2E7 /* Main.storyboard */; };
 		90616E122B4940000023A2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90616E112B4940000023A2E7 /* Assets.xcassets */; };
 		90616E152B4940000023A2E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90616E132B4940000023A2E7 /* LaunchScreen.storyboard */; };
+		90616E212B494EF90023A2E7 /* background.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90616E202B494EF90023A2E7 /* background.gif */; };
+		90616E242B4951670023A2E7 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90616E232B4951670023A2E7 /* GifLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9060069C2B4D371100D04863 /* OnBoardController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnBoardController .swift"; sourceTree = "<group>"; };
+		9060069E2B4D376400D04863 /* centralGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = centralGif.gif; sourceTree = "<group>"; };
+		906006A12B4D391E00D04863 /* AuthPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageController.swift; sourceTree = "<group>"; };
 		90616E052B493FFF0023A2E7 /* GIFinity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIFinity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90616E082B493FFF0023A2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90616E0A2B493FFF0023A2E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		90616E0C2B493FFF0023A2E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90616E0F2B493FFF0023A2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90616E112B4940000023A2E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90616E142B4940000023A2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90616E162B4940000023A2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90616E202B494EF90023A2E7 /* background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = background.gif; sourceTree = "<group>"; };
+		90616E232B4951670023A2E7 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		906006A02B4D390100D04863 /* Authentication Page */ = {
+			isa = PBXGroup;
+			children = (
+				906006A12B4D391E00D04863 /* AuthPageController.swift */,
+			);
+			path = "Authentication Page";
+			sourceTree = "<group>";
+		};
 		90616DFC2B493FFF0023A2E7 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +72,43 @@
 		90616E072B493FFF0023A2E7 /* GIFinity */ = {
 			isa = PBXGroup;
 			children = (
+				90616E1C2B4949720023A2E7 /* On Boarding Page */,
+				906006A02B4D390100D04863 /* Authentication Page */,
 				90616E082B493FFF0023A2E7 /* AppDelegate.swift */,
 				90616E0A2B493FFF0023A2E7 /* SceneDelegate.swift */,
-				90616E0C2B493FFF0023A2E7 /* ViewController.swift */,
 				90616E0E2B493FFF0023A2E7 /* Main.storyboard */,
+				90616E222B4951550023A2E7 /* Helper */,
+				90616E1F2B494EDE0023A2E7 /* Gifs */,
 				90616E112B4940000023A2E7 /* Assets.xcassets */,
 				90616E132B4940000023A2E7 /* LaunchScreen.storyboard */,
 				90616E162B4940000023A2E7 /* Info.plist */,
 			);
 			path = GIFinity;
+			sourceTree = "<group>";
+		};
+		90616E1C2B4949720023A2E7 /* On Boarding Page */ = {
+			isa = PBXGroup;
+			children = (
+				9060069C2B4D371100D04863 /* OnBoardController .swift */,
+			);
+			path = "On Boarding Page";
+			sourceTree = "<group>";
+		};
+		90616E1F2B494EDE0023A2E7 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				9060069E2B4D376400D04863 /* centralGif.gif */,
+				90616E202B494EF90023A2E7 /* background.gif */,
+			);
+			path = Gifs;
+			sourceTree = "<group>";
+		};
+		90616E222B4951550023A2E7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				90616E232B4951670023A2E7 /* GifLoader.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +171,8 @@
 			files = (
 				90616E152B4940000023A2E7 /* LaunchScreen.storyboard in Resources */,
 				90616E122B4940000023A2E7 /* Assets.xcassets in Resources */,
+				90616E212B494EF90023A2E7 /* background.gif in Resources */,
+				9060069F2B4D376400D04863 /* centralGif.gif in Resources */,
 				90616E102B493FFF0023A2E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90616E0D2B493FFF0023A2E7 /* ViewController.swift in Sources */,
+				9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */,
 				90616E092B493FFF0023A2E7 /* AppDelegate.swift in Sources */,
+				906006A22B4D391E00D04863 /* AuthPageController.swift in Sources */,
 				90616E0B2B493FFF0023A2E7 /* SceneDelegate.swift in Sources */,
+				90616E242B4951670023A2E7 /* GifLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
