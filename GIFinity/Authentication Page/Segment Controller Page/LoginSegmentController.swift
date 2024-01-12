@@ -19,7 +19,8 @@ class LoginSegmentController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        
+        let controller = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+        navigationController?.show(controller, sender: nil)
     }
     
     @IBAction func forgotPassButton(_ sender: Any) {
