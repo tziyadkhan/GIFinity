@@ -8,6 +8,24 @@
         "revision" : "3dc6a42c7727c49bf26508e29b0a0b35f9c7e1ad",
         "version" : "5.8.1"
       }
+    },
+    {
+      "identity" : "chtcollectionviewwaterfalllayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/chiahsien/CHTCollectionViewWaterfallLayout.git",
+      "state" : {
+        "revision" : "1fe42247efc8aea1ad03332d2b44f2d7fb1644bc",
+        "version" : "0.9.10"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "59730af512c06fb569c119d737df4c1c499e001d",
+        "version" : "5.18.10"
+      }
     }
   ],
   "version" : 2

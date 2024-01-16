@@ -33,6 +33,13 @@
 		906407F92B5134DD007C3ECB /* TrendingListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906407F82B5134DD007C3ECB /* TrendingListUseCase.swift */; };
 		906407FB2B5134E9007C3ECB /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906407FA2B5134E9007C3ECB /* HomeManager.swift */; };
 		906407FD2B5134F5007C3ECB /* HomePageEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906407FC2B5134F5007C3ECB /* HomePageEndPoint.swift */; };
+		909475732B56C8B800FFF157 /* icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 909475722B56C8B800FFF157 /* icon.gif */; };
+		9094757C2B56D39100FFF157 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 9094757B2B56D39100FFF157 /* CHTCollectionViewWaterfallLayout */; };
+		9094757E2B56D39100FFF157 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 9094757D2B56D39100FFF157 /* CHTCollectionViewWaterfallLayoutObjC */; };
+		909475802B56D3C200FFF157 /* GifsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9094757F2B56D3C200FFF157 /* GifsCollectionCell.swift */; };
+		909475822B56D51A00FFF157 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909475812B56D51A00FFF157 /* ImageExtension.swift */; };
+		909475852B56D52600FFF157 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 909475842B56D52600FFF157 /* SDWebImage */; };
+		909475872B56D52600FFF157 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 909475862B56D52600FFF157 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +70,9 @@
 		906407F82B5134DD007C3ECB /* TrendingListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingListUseCase.swift; sourceTree = "<group>"; };
 		906407FA2B5134E9007C3ECB /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		906407FC2B5134F5007C3ECB /* HomePageEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageEndPoint.swift; sourceTree = "<group>"; };
+		909475722B56C8B800FFF157 /* icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icon.gif; sourceTree = "<group>"; };
+		9094757F2B56D3C200FFF157 /* GifsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifsCollectionCell.swift; sourceTree = "<group>"; };
+		909475812B56D51A00FFF157 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9094757C2B56D39100FFF157 /* CHTCollectionViewWaterfallLayout in Frameworks */,
+				909475872B56D52600FFF157 /* SDWebImageMapKit in Frameworks */,
+				9094757E2B56D39100FFF157 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */,
+				909475852B56D52600FFF157 /* SDWebImage in Frameworks */,
 				906407F02B513107007C3ECB /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +128,7 @@
 		90616E072B493FFF0023A2E7 /* GIFinity */ = {
 			isa = PBXGroup;
 			children = (
+				909475792B56D1CA00FFF157 /* Cells */,
 				90616E1C2B4949720023A2E7 /* On Boarding Page */,
 				906006A02B4D390100D04863 /* Authentication Page */,
 				906407DB2B51277A007C3ECB /* Home Page */,
@@ -145,6 +160,7 @@
 		90616E1F2B494EDE0023A2E7 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
+				909475722B56C8B800FFF157 /* icon.gif */,
 				9060069E2B4D376400D04863 /* centralGif.gif */,
 				90616E202B494EF90023A2E7 /* background.gif */,
 			);
@@ -155,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				90616E232B4951670023A2E7 /* GifLoader.swift */,
+				909475812B56D51A00FFF157 /* ImageExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -167,6 +184,7 @@
 				906407F82B5134DD007C3ECB /* TrendingListUseCase.swift */,
 				906407FA2B5134E9007C3ECB /* HomeManager.swift */,
 				906407FC2B5134F5007C3ECB /* HomePageEndPoint.swift */,
+				9094757F2B56D3C200FFF157 /* GifsCollectionCell.swift */,
 			);
 			path = "Home Page";
 			sourceTree = "<group>";
@@ -214,6 +232,13 @@
 			path = "Data Manager";
 			sourceTree = "<group>";
 		};
+		909475792B56D1CA00FFF157 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +257,10 @@
 			name = GIFinity;
 			packageProductDependencies = (
 				906407EF2B513107007C3ECB /* Alamofire */,
+				9094757B2B56D39100FFF157 /* CHTCollectionViewWaterfallLayout */,
+				9094757D2B56D39100FFF157 /* CHTCollectionViewWaterfallLayoutObjC */,
+				909475842B56D52600FFF157 /* SDWebImage */,
+				909475862B56D52600FFF157 /* SDWebImageMapKit */,
 			);
 			productName = GIFinity;
 			productReference = 90616E052B493FFF0023A2E7 /* GIFinity.app */;
@@ -263,6 +292,8 @@
 			mainGroup = 90616DFC2B493FFF0023A2E7;
 			packageReferences = (
 				906407EE2B513107007C3ECB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9094757A2B56D39100FFF157 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */,
+				909475832B56D52600FFF157 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 90616E062B493FFF0023A2E7 /* Products */;
 			projectDirPath = "";
@@ -279,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90616E152B4940000023A2E7 /* LaunchScreen.storyboard in Resources */,
+				909475732B56C8B800FFF157 /* icon.gif in Resources */,
 				90616E122B4940000023A2E7 /* Assets.xcassets in Resources */,
 				90616E212B494EF90023A2E7 /* background.gif in Resources */,
 				9060069F2B4D376400D04863 /* centralGif.gif in Resources */,
@@ -302,7 +334,9 @@
 				906407F92B5134DD007C3ECB /* TrendingListUseCase.swift in Sources */,
 				906407DF2B512799007C3ECB /* HomePageViewModel.swift in Sources */,
 				906006A22B4D391E00D04863 /* AuthPageController.swift in Sources */,
+				909475822B56D51A00FFF157 /* ImageExtension.swift in Sources */,
 				904196C62B4D4C4D00C9A099 /* RegisterSegmentController.swift in Sources */,
+				909475802B56D3C200FFF157 /* GifsCollectionCell.swift in Sources */,
 				906407FB2B5134E9007C3ECB /* HomeManager.swift in Sources */,
 				904196C42B4D4C3F00C9A099 /* LoginSegmentController.swift in Sources */,
 				906407F42B5131FC007C3ECB /* NetworkHelper.swift in Sources */,
@@ -543,6 +577,22 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		9094757A2B56D39100FFF157 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chiahsien/CHTCollectionViewWaterfallLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.10;
+			};
+		};
+		909475832B56D52600FFF157 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.10;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -550,6 +600,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 906407EE2B513107007C3ECB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		9094757B2B56D39100FFF157 /* CHTCollectionViewWaterfallLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9094757A2B56D39100FFF157 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayout;
+		};
+		9094757D2B56D39100FFF157 /* CHTCollectionViewWaterfallLayoutObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9094757A2B56D39100FFF157 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayoutObjC;
+		};
+		909475842B56D52600FFF157 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 909475832B56D52600FFF157 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		909475862B56D52600FFF157 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 909475832B56D52600FFF157 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

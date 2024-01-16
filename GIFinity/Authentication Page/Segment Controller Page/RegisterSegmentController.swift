@@ -10,9 +10,7 @@ import UIKit
 class RegisterSegmentController: UIViewController {
 
     @IBOutlet weak var regEmailTextField: UITextField!
-    
     @IBOutlet weak var regUsernameTextField: UITextField!
-    
     @IBOutlet weak var regPasswordTextField: UITextField!
     
     override func viewDidLoad() {
@@ -58,3 +56,7 @@ class RegisterSegmentController: UIViewController {
         }
     }
 }
+
+
+//safari window saytlar ucun
+

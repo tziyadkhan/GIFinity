@@ -8,7 +8,7 @@
 import Foundation
 
 class HomePageViewModel {
-    var trendingGifItems = [TrendingGifResults]()
+    var trendingGifItems = [TrendingGifResult]()
     private let manager = HomeManager()
     
     var success: (() -> Void)?
@@ -20,7 +20,7 @@ class HomePageViewModel {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {
                 self.trendingGifItems.append(contentsOf: data.result ?? [])
-//                print(data.result ?? ["nil"])
+//                print(data)
                 self.success?()
             }
         }

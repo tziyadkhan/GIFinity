@@ -1,21 +1,25 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  TrendingGifModel.swift
-//  GIFinity
-//
-//  Created by Ziyadkhan on 12.01.24.
-//
+//   let trendingGIFModel = try? JSONDecoder().decode(TrendingGIFModel.self, from: jsonData)
 
 import Foundation
 
-// MARK: - TrendingGIFModel
+// MARK: - TrendingGifModel
 struct TrendingGifModel: Codable {
-    let result: [TrendingGifResults]?
+    let result: [TrendingGifResult]?
     let pagination: Pagination?
     let meta: Meta?
+    
+    enum CodingKeys: String, CodingKey {
+        case result = "data"
+        case pagination
+        case meta
+    }
 }
 
 // MARK: - Datum
-struct TrendingGifResults: Codable {
+struct TrendingGifResult: Codable {
     let type: TypeEnum?
     let id: String?
     let url: String?
