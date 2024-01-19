@@ -35,7 +35,6 @@ extension TrendingPageController: UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
         if let imageURL = viewModel.trendingGifItems[indexPath.item].images?.original?.url {
             cell.gifImage.showImage(imageURL: imageURL)
-            print(imageURL)
         }
         return cell
     }

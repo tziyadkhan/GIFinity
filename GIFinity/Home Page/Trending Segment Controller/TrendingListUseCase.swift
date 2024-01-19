@@ -8,5 +8,5 @@
 import Foundation
 
 protocol TrendingListUseCase {
-    func getTrendingGifList(endpoint: TrendingEndpoint, completion: @escaping ((TrendingGifModel?, Error?) -> Void))
+    func getTrendingGifList(offsetNumber: Int, completion: @escaping ((TrendingModel?, Error?) -> Void))
 }

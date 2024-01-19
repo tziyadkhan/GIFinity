@@ -8,14 +8,14 @@
 import Foundation
 
 class TrendingPageViewModel {
-    var trendingGifItems = [TrendingGifResult]()
+    var trendingGifItems = [TrendingResult]()
     private let manager = TrendingManager()
     
     var success: (() -> Void)?
     var error: ((String?) -> Void)?
     
     func getItems() {
-        manager.getTrendingGifList(endpoint: .trendingGifs) { data, errorMessage in
+        manager.getTrendingGifList(offsetNumber: 50) { data, errorMessage in
             if let errorMessage {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {
@@ -26,3 +26,5 @@ class TrendingPageViewModel {
         }
     }
 }
+
+ // 1 page'de 50 dene item yerleshir, yeni 1 page 0-50 offset, ikinci page ucun +50 yeni 50-den 100-e qeder.

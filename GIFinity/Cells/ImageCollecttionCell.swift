@@ -13,7 +13,7 @@ class ImageCollecttionCell: UICollectionViewCell {
      let gifImage: UIImageView = {
         let gif = UIImageView()
         gif.contentMode = .scaleAspectFill
-        gif.backgroundColor = .red
+//         gif.backgroundColor = .
          gif.layer.cornerRadius = 5
          gif.layer.masksToBounds = true
         return gif

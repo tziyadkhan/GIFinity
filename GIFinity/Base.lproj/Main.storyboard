@@ -967,19 +967,45 @@
             </objects>
             <point key="canvasLocation" x="1049.6183206106871" y="-2.1126760563380285"/>
         </scene>
-        <!--View Controller-->
+        <!--Sticker Page Controller-->
         <scene sceneID="4HK-CI-4UL">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="hP8-hm-9cI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StickerPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hP8-hm-9cI" customClass="StickerPageController" customModule="GIFinity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwM-U0-TlH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mPQ-oh-QPv">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="623"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s7W-Nv-nJG">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hP8-hm-9cI" id="Xtu-kn-TYO"/>
+                                    <outlet property="delegate" destination="hP8-hm-9cI" id="kMH-re-9PN"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mPQ-oh-QPv" firstAttribute="top" secondItem="wwM-U0-TlH" secondAttribute="top" id="8U3-3t-LQW"/>
+                            <constraint firstAttribute="bottom" secondItem="mPQ-oh-QPv" secondAttribute="bottom" id="CYL-8a-vTd"/>
+                            <constraint firstItem="mPQ-oh-QPv" firstAttribute="leading" secondItem="wwM-U0-TlH" secondAttribute="leading" id="PpK-QK-gAh"/>
+                            <constraint firstAttribute="trailing" secondItem="mPQ-oh-QPv" secondAttribute="trailing" id="cmb-hq-XNP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stickerCollection" destination="mPQ-oh-QPv" id="Y57-1B-P7O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhe-bE-Ry2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7883" y="1512"/>
+            <point key="canvasLocation" x="7881.679389312977" y="1511.6197183098593"/>
         </scene>
         <!--Trending Page Controller-->
         <scene sceneID="nyb-01-aPT">

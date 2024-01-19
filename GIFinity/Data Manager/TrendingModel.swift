@@ -6,8 +6,8 @@
 import Foundation
 
 // MARK: - TrendingGifModel
-struct TrendingGifModel: Codable {
-    let result: [TrendingGifResult]?
+struct TrendingModel: Codable {
+    let result: [TrendingResult]?
     let pagination: Pagination?
     let meta: Meta?
     
@@ -19,7 +19,7 @@ struct TrendingGifModel: Codable {
 }
 
 // MARK: - Datum
-struct TrendingGifResult: Codable {
+struct TrendingResult: Codable {
     let type: TypeEnum?
     let id: String?
     let url: String?
@@ -168,6 +168,9 @@ enum Rating: String, Codable {
 
 enum TypeEnum: String, Codable {
     case gif = "gif"
+    case emoji = "emoji"
+    case sticker = "sticker"
+    case text = "text"
 }
 
 // MARK: - User
