@@ -7,8 +7,8 @@
 
 import UIKit
 
-class GifsCollectionCell: UICollectionViewCell {
-    static let identifier = "GifsCollectionCell"
+class ImageCollecttionCell: UICollectionViewCell {
+    static let identifier = "ImageCollecttionCell"
     
      let gifImage: UIImageView = {
         let gif = UIImageView()

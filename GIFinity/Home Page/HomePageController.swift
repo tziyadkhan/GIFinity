@@ -6,23 +6,37 @@
 //
 
 import UIKit
-import CHTCollectionViewWaterfallLayout
 
 class HomePageController: UIViewController {
     
     @IBOutlet weak var iconGIF: UIImageView!
-    @IBOutlet weak var gifsCollection: UICollectionView!
+    @IBOutlet weak var categorySegmentOutlet: UISegmentedControl!
+    @IBOutlet weak var stickerSegment: UIView!
+    @IBOutlet weak var trendingSegment: UIView!
     
-    let viewModel = HomePageViewModel()
-    let layout = CHTCollectionViewWaterfallLayout()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewModel()
+        configSegment()
         configUI()
-        configCollection()
     }
-
+    
+    @IBAction func categorySelection(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.view.bringSubviewToFront(trendingSegment)
+            trendingSegment.isHidden = false
+            stickerSegment.isHidden = true
+            sender.selectedSegmentTintColor = .trendingCell
+        case 1:
+            self.view.bringSubviewToFront(stickerSegment)
+            trendingSegment.isHidden = true
+            stickerSegment.isHidden = false
+            sender.selectedSegmentTintColor = .stickerCell
+        default:
+            break
+        }
+    }
+    
     @IBAction func searchTextField(_ sender: Any) {
         
     }
@@ -32,57 +46,15 @@ class HomePageController: UIViewController {
     }
     
 }
-
-extension HomePageController: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let width = Int(viewModel.trendingGifItems[indexPath.item].images?.original?.width ?? "0"),
-              let height = Int(viewModel.trendingGifItems[indexPath.item].images?.original?.height ?? "0") else {
-                // Handle the case where width or height is nil
-                return CGSize(width: 100, height: 100) // Provide default values
-            }
-            
-        return CGSize(width: width, height: height)
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.trendingGifItems.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifsCollectionCell.identifier,
-                                                      for: indexPath) as! GifsCollectionCell
-        if let imageURL = viewModel.trendingGifItems[indexPath.item].images?.original?.url {
-            cell.gifImage.showImage(imageURL: imageURL)
-            print(imageURL)
-        }
-        return cell
-        
-    }
-}
-
 extension HomePageController {
-    
-    func configureViewModel() {
-        viewModel.error = { error in
-            print(error!)
-        }
-        viewModel.success = {
-            self.gifsCollection.reloadData()
-        }
-        viewModel.getItems()
+    func configSegment() {
+        let titleTextAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 13, weight: .semibold)]
+        categorySegmentOutlet.setTitleTextAttributes(titleTextAttributes, for: .normal)
     }
     func configUI() {
         let icon = UIImage.gifImageWithName("icon")
         iconGIF.image = icon
     }
-    
-    func configCollection() {
-        layout.columnCount = 2
-        layout.itemRenderDirection = .leftToRight
-        gifsCollection.collectionViewLayout = layout
-        gifsCollection.register(GifsCollectionCell.self, 
-                                forCellWithReuseIdentifier: GifsCollectionCell.identifier)
-    }
 }
-

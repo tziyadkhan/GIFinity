@@ -7,9 +7,9 @@
 
 import Foundation
 
-class HomePageViewModel {
+class TrendingPageViewModel {
     var trendingGifItems = [TrendingGifResult]()
-    private let manager = HomeManager()
+    private let manager = TrendingManager()
     
     var success: (() -> Void)?
     var error: ((String?) -> Void)?

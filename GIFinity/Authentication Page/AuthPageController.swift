@@ -50,7 +50,7 @@ extension AuthPageController {
     func configSegment() {
         self.view.bringSubviewToFront(signupSegment)
         authSegmentOutlet.selectedSegmentIndex = 1 // kecid edende ilk bashda sign up tovsiyye etsin
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] // segment secilen zaman font ag reng olacaq
         authSegmentOutlet.setTitleTextAttributes(titleTextAttributes, for: .normal)
         signupSegment.isHidden = false
         loginSegment.isHidden = true
