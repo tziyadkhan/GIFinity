@@ -15,7 +15,7 @@ class TrendingPageViewModel {
     var error: ((String?) -> Void)?
     
     func getItems() {
-        manager.getTrendingGifList(offsetNumber: 50) { data, errorMessage in
+        manager.getTrendingGifList(offsetNumber: 100) { data, errorMessage in
             if let errorMessage {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {

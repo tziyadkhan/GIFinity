@@ -10,5 +10,5 @@ import Alamofire
 
 class NetworkHelper {
     static let baseURL = "https://api.giphy.com/v1/"
-    static let apiKey = "W9jYxHWzUioIaiXtQ9KzxdVAmiLPt6E5"
+    static let apiKey = "W9jYxHWzUioIaiXtQ9KzxdVAmiLPt6E5"    
 }

@@ -12,20 +12,19 @@ class NetworkManager {
     
     static func request<T: Codable>(model: T.Type,
                                     endpoint: String,
-                                    offsetNumber: Int,
                                     method: HTTPMethod = .get,
                                     parameters: Parameters? = nil,
-                                    encoding: ParameterEncoding = URLEncoding.default, 
-                                    header: HTTPHeaders? = nil,
+                                    encoding: ParameterEncoding = URLEncoding.default,
                                     completion: @escaping (T?, Error?) -> Void) {
-        AF.request("\(NetworkHelper.baseURL)\(endpoint)?api_key=\(NetworkHelper.apiKey)&offset=\(offsetNumber)",
-                   // api.giphy.com/v1/gifs/trending?api_key=W9jYxHWzUioIaiXtQ9KzxdVAmiLPt6E5&offset=50
+        
+        var apiParam = parameters ?? [:]
+        apiParam["api_key"] = NetworkHelper.apiKey
+        
+        AF.request("\(NetworkHelper.baseURL)\(endpoint)",
                    method: method,
-                   parameters: parameters,
-                   encoding: encoding,
-                   headers: header).responseDecodable(of: T.self) { response in
-            switch (response.result) {
-                
+                   parameters: apiParam,
+                   encoding: encoding).responseDecodable(of: T.self) { response in
+            switch response.result {
             case .success(let data):
                 completion(data, nil)
             case .failure(let error):
