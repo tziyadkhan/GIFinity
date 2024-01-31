@@ -46,6 +46,11 @@ extension TrendingPageController: UICollectionViewDelegate,
             }
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewModel.pagination(index: indexPath.item)
+//        print("\(indexPath.item)")
+    }
 }
 
 //MARK: Functions

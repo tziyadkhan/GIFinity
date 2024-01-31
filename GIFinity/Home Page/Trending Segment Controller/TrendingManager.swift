@@ -9,7 +9,8 @@ import Foundation
 
 class TrendingManager:TrendingListUseCase {
     func getTrendingGifList(offsetNumber: Int, completion: @escaping ((TrendingModel?, Error?) -> Void)) {
-        let url = TrendingEndpoint.trendingGifs.rawValue
+        let url = TrendingEndpoint.trendingGifs.rawValue /*+ "&offset=\(offsetNumber)"*/
+//        print(url)
         let param: [String: Any] = ["offset": offsetNumber]
         NetworkManager.request(model: TrendingModel.self,
                                endpoint: url,

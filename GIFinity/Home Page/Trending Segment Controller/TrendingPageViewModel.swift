@@ -9,20 +9,29 @@ import Foundation
 
 class TrendingPageViewModel {
     var trendingGifItems = [TrendingResult]()
+    var trendingGifData: TrendingModel?
     private let manager = TrendingManager()
     
     var success: (() -> Void)?
     var error: ((String?) -> Void)?
     
     func getItems() {
-        manager.getTrendingGifList(offsetNumber: 100) { data, errorMessage in
+        manager.getTrendingGifList(offsetNumber: (trendingGifData?.pagination?.offset ?? 0) + 50) { data, errorMessage in
             if let errorMessage {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {
+                self.trendingGifData = data
                 self.trendingGifItems.append(contentsOf: data.result ?? [])
 //                print(data)
                 self.success?()
             }
+        }
+    }
+    
+    func pagination(index: Int) {
+        if index == trendingGifItems.count - 2 &&
+            trendingGifData?.pagination?.count ?? 0 <= trendingGifData?.pagination?.totalCount ?? 0 {
+            getItems()
         }
     }
 }

@@ -33,7 +33,7 @@ extension StickerPageController: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
         if let imageURL = viewmodel.stickerItems[indexPath.item].images?.original?.url {
             cell.gifImage.showImage(imageURL: imageURL)
-            print(imageURL)
+//            print(imageURL)
         }
         return cell
     }
@@ -44,6 +44,9 @@ extension StickerPageController: UICollectionViewDelegate, UICollectionViewDataS
             return CGSize(width: 100, height: 100)
         }
         return CGSize(width: width, height: height)
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewmodel.pagination(index: indexPath.item)
     }
 }
 

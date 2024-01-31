@@ -19,7 +19,6 @@ class NetworkManager {
         
         var apiParam = parameters ?? [:]
         apiParam["api_key"] = NetworkHelper.apiKey
-        
         AF.request("\(NetworkHelper.baseURL)\(endpoint)",
                    method: method,
                    parameters: apiParam,
@@ -31,5 +30,7 @@ class NetworkManager {
                 completion(nil, error)
             }
         }
+        print("\(NetworkHelper.baseURL)\(endpoint)")
+
     }
 }
