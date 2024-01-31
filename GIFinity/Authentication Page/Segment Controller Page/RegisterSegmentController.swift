@@ -24,11 +24,9 @@ class RegisterSegmentController: UIViewController {
     @IBAction func alreadyStartedRegButton(_ sender: Any) {
     }
     
-    @IBAction func signinFacebook(_ sender: Any) {
+    @IBAction func signInGoogle(_ sender: Any) {
     }
     
-    @IBAction func signinApple(_ sender: Any) {
-    }
     
     @IBAction func termsOfService(_ sender: Any) {
         if let url = URL(string: "https://support.giphy.com/hc/en-us/articles/360020027752-GIPHY-User-Terms-of-Service#:~:text=Please%20do%20not%20publicly%20post,in%20connection%20with%20its%20Services.") {

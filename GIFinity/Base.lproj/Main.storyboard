@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E9P-Qc-xo2">
-                                <rect key="frame" x="12" y="220" width="337" height="116"/>
+                                <rect key="frame" x="12" y="220" width="337" height="54"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFV-Jc-Eh3">
                                         <rect key="frame" x="0.0" y="0.0" width="337" height="54"/>
@@ -286,12 +286,12 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRt-AS-9os">
                                                 <rect key="frame" x="4" y="4" width="329" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="facebook24" title="Sign in with Facebook">
+                                                <buttonConfiguration key="configuration" style="plain" image="google24" title="Sign in with Google">
                                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="signinFacebook:" destination="bax-Jd-wpG" eventType="touchUpInside" id="jaB-cB-WsE"/>
+                                                    <action selector="signInGoogle:" destination="bax-Jd-wpG" eventType="touchUpInside" id="X1e-jc-jDA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -309,39 +309,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tJ-OQ-YAC">
-                                        <rect key="frame" x="0.0" y="62" width="337" height="54"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYz-dq-c5h">
-                                                <rect key="frame" x="4" y="4" width="329" height="46"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="apple24" title="Sign in with Apple">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="signinApple:" destination="bax-Jd-wpG" eventType="touchUpInside" id="8HZ-im-W0b"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" name="SegmentBackground"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="hYz-dq-c5h" secondAttribute="trailing" constant="4" id="4A9-Vp-Z38"/>
-                                            <constraint firstItem="hYz-dq-c5h" firstAttribute="leading" secondItem="1tJ-OQ-YAC" secondAttribute="leading" constant="4" id="bpd-x7-H0f"/>
-                                            <constraint firstAttribute="height" constant="54" id="gI8-ao-cbB"/>
-                                            <constraint firstItem="hYz-dq-c5h" firstAttribute="top" secondItem="1tJ-OQ-YAC" secondAttribute="top" constant="4" id="gx3-lc-5nd"/>
-                                            <constraint firstAttribute="bottom" secondItem="hYz-dq-c5h" secondAttribute="bottom" constant="4" id="u2e-FP-yyp"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="-9" translatesAutoresizingMaskIntoConstraints="NO" id="CT4-0j-Oic">
-                                <rect key="frame" x="24" y="340" width="313" height="23.666666666666686"/>
+                                <rect key="frame" x="24" y="278" width="313" height="23.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By loggining in you agree GIFINITY's " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxO-lR-zdB">
                                         <rect key="frame" x="0.0" y="6.9999999999999991" width="146.66666666666666" height="9.6666666666666643"/>
@@ -684,7 +655,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="d2A-WC-FWg">
-                                <rect key="frame" x="12" y="281.33333333333331" width="337" height="112"/>
+                                <rect key="frame" x="12" y="281.33333333333331" width="337" height="54"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Nd-eI-sND">
                                         <rect key="frame" x="0.0" y="0.0" width="337" height="54"/>
@@ -692,12 +663,12 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeg-Ot-xDw">
                                                 <rect key="frame" x="4" y="4" width="329" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="facebook24" title="Sign in with Facebook">
+                                                <buttonConfiguration key="configuration" style="plain" image="google24" title="Sign in with Google">
                                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="signinFacebook:" destination="luN-KG-liA" eventType="touchUpInside" id="0Pl-Mk-day"/>
+                                                    <action selector="signInGoogle:" destination="luN-KG-liA" eventType="touchUpInside" id="H24-32-Gxp"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -720,44 +691,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUB-BX-lWH">
-                                        <rect key="frame" x="0.0" y="58" width="337" height="54"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxS-kM-mrF">
-                                                <rect key="frame" x="4" y="4" width="329" height="46"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="apple24" title="Sign in with Apple">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="signinApple:" destination="luN-KG-liA" eventType="touchUpInside" id="MNb-Bq-j1Y"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" name="SegmentBackground"/>
-                                        <constraints>
-                                            <constraint firstItem="NxS-kM-mrF" firstAttribute="leading" secondItem="bUB-BX-lWH" secondAttribute="leading" constant="4" id="5Gq-cF-53j"/>
-                                            <constraint firstItem="NxS-kM-mrF" firstAttribute="leading" secondItem="bUB-BX-lWH" secondAttribute="leading" constant="4" id="9ja-kh-JN9"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54" id="AjV-Cu-bR8"/>
-                                            <constraint firstAttribute="trailing" secondItem="NxS-kM-mrF" secondAttribute="trailing" constant="4" id="ByO-8a-Ecn"/>
-                                            <constraint firstAttribute="height" constant="54" id="L1f-SP-is5"/>
-                                            <constraint firstAttribute="trailing" secondItem="NxS-kM-mrF" secondAttribute="trailing" constant="4" id="UPc-5W-iLx"/>
-                                            <constraint firstAttribute="bottom" secondItem="NxS-kM-mrF" secondAttribute="bottom" constant="4" id="V3B-dH-hSa"/>
-                                            <constraint firstAttribute="bottom" secondItem="NxS-kM-mrF" secondAttribute="bottom" constant="4" id="cug-Kg-zL0"/>
-                                            <constraint firstItem="NxS-kM-mrF" firstAttribute="top" secondItem="bUB-BX-lWH" secondAttribute="top" constant="4" id="pty-Nb-8Ln"/>
-                                            <constraint firstItem="NxS-kM-mrF" firstAttribute="top" secondItem="bUB-BX-lWH" secondAttribute="top" constant="4" id="rAf-RK-vne"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xV-Zb-38g">
-                                <rect key="frame" x="12" y="441.66666666666669" width="337" height="38"/>
+                                <rect key="frame" x="12" y="383.66666666666669" width="337" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="recaptcha24" title="  Privacy - Terms">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
@@ -768,7 +705,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="aim-lP-vkW">
-                                <rect key="frame" x="12" y="409.33333333333331" width="337" height="28.333333333333314"/>
+                                <rect key="frame" x="12" y="351.33333333333331" width="337" height="28.333333333333314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9iw-K4-XRp">
                                         <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="28.333333333333332"/>
@@ -991,6 +928,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="71D-Ps-5Sz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mPQ-oh-QPv" firstAttribute="top" secondItem="wwM-U0-TlH" secondAttribute="top" id="8U3-3t-LQW"/>
@@ -1031,6 +969,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="WfC-wd-vPR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="2Iy-yT-f91" secondAttribute="bottom" id="9hP-mu-XRT"/>
@@ -1049,11 +988,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apple24" width="24" height="24"/>
         <image name="background.gif" width="127" height="149"/>
         <image name="checked" width="24" height="24"/>
-        <image name="facebook24" width="24" height="24"/>
         <image name="favourite" width="24" height="24"/>
+        <image name="google24" width="24" height="24"/>
         <image name="home" width="24" height="24"/>
         <image name="icon.gif" width="88" height="90"/>
         <image name="profile" width="24" height="24"/>

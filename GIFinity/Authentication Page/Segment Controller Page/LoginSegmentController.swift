@@ -29,11 +29,9 @@ class LoginSegmentController: UIViewController {
         
     }
     
-    @IBAction func signinFacebook(_ sender: Any) {
+    @IBAction func signInGoogle(_ sender: Any) {
     }
     
-    @IBAction func signinApple(_ sender: Any) {
-    }
     
     @IBAction func privacyAndPolicy(_ sender: Any) {
         if let url = URL(string: "https://support.giphy.com/hc/en-us/articles/360032872931") {
