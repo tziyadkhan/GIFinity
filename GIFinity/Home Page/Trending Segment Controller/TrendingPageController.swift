@@ -14,11 +14,18 @@ class TrendingPageController: UIViewController {
     
     let viewModel = TrendingPageViewModel()
     let layout = CHTCollectionViewWaterfallLayout()
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         configureViewModel()
+    }
+    
+    @objc func pullToRefresh() {
+        viewModel.reset()
+        trendingCollection.reloadData()
+        viewModel.getItems()
     }
 }
 
@@ -61,6 +68,8 @@ extension TrendingPageController {
         }
         viewModel.success = {
             self.trendingCollection.reloadData()
+            self.refreshControl.endRefreshing()
+
         }
         viewModel.getItems()
     }
@@ -69,5 +78,10 @@ extension TrendingPageController {
         layout.itemRenderDirection = .leftToRight
         trendingCollection.collectionViewLayout = layout
         trendingCollection.register(ImageCollecttionCell.self, forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
+        
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.tintColor = .red
+        refreshControl.backgroundColor = .trendingCell
+        trendingCollection.refreshControl = refreshControl
     }
 }

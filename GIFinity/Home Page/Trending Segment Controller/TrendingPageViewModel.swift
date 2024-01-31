@@ -34,6 +34,11 @@ class TrendingPageViewModel {
             getItems()
         }
     }
+    
+    func reset() {
+        trendingGifData = nil
+        trendingGifItems.removeAll()
+    }
 }
 
  // 1 page'de 50 dene item yerleshir, yeni 1 page 0-50 offset, ikinci page ucun +50 yeni 50-den 100-e qeder.
