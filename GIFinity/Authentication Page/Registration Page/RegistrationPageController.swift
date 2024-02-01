@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegistrationPageController: UIViewController {
     
@@ -14,6 +15,8 @@ class RegistrationPageController: UIViewController {
     @IBOutlet weak var regEmailTextField: UITextField!
     @IBOutlet weak var regPasswordTextField: UITextField!
     
+    var tickValidation = false
+    var onLogin: ((String, String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,20 @@ class RegistrationPageController: UIViewController {
     }
     
     @IBAction func signupButton(_ sender: Any) {
-        
+        if let fullname = regFullnameTextField.text,
+           let email = regEmailTextField.text,
+           let password = regPasswordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
+                if let error {
+//                    print(error.localizedDescription)
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                } else if let user = result?.user {
+                    self?.onLogin?(user.email ?? "", password)
+                    self?.navigationController?.popViewController(animated: true)
+                    print(user)
+                }
+            }
+        }
     }
     
     @IBAction func haveAccountButton(_ sender: Any) {
@@ -55,8 +71,10 @@ class RegistrationPageController: UIViewController {
     @IBAction func tickButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
+            tickValidation = false
         } else {
             sender.isSelected = true
+            tickValidation = true
         }
     }
     
@@ -68,5 +86,14 @@ extension RegistrationPageController {
         let backgroundGif = UIImage.gifImageWithName("background")
         backgroundGIF.image = backgroundGif
         self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okayButton)
+        self.present(alertController, animated: true)
     }
 }

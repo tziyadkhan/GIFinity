@@ -16,12 +16,10 @@ class OnBoardController: UIViewController {
         super.viewDidLoad()
        configUI()
     }
-    
     @IBAction func getStartedButton(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "RegistrationPageController") as! RegistrationPageController
+        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
         navigationController?.show(controller, sender: nil)
     }
-    
 }
 
 //MARK: Functions

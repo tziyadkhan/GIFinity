@@ -16,8 +16,3 @@ class NetworkHelper {
         return ("\(baseURL)\(endpoint)?api_key=\(apiKey)")
     }
 }
-
-
-//api.giphy.com/v1/gifs/trending?api_key=W9jYxHWzUioIaiXtQ9KzxdVAmiLPt6E5
-
-//https://api.giphy.com/v1/gifs/trending&api_key=W9jYxHWzUioIaiXtQ9KzxdVAmiLPt6E5
