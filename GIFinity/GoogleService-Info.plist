@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyB3wmD8_8gy9uQ_Bd3I4X1sQOQky41qKfw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1061624070033</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ziyadkhan.GIFinity</string>
+	<key>PROJECT_ID</key>
+	<string>gifinity-22214</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gifinity-22214.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1061624070033:ios:5658c35219927feace2430</string>
+</dict>
+</plist>

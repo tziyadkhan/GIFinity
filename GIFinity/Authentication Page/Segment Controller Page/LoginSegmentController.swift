@@ -29,7 +29,17 @@ class LoginSegmentController: UIViewController {
         
     }
     
+    @IBAction func signUp(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "RegisterSegmentController") as! RegisterSegmentController
+        controller.onLogin = { email, password in
+            self.loginEmailTextField.text = email
+            self.loginPasswordTextField.text = password
+        }
+        navigationController?.show(controller, sender: nil)
+    }
+    
     @IBAction func signInGoogle(_ sender: Any) {
+        
     }
     
     

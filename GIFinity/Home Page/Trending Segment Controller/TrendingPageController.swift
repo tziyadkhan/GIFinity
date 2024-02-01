@@ -18,6 +18,7 @@ class TrendingPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureCollectionView()
         configureViewModel()
     }

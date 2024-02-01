@@ -8,5 +8,5 @@
 import Foundation
 
 enum TrendingEndpoint: String {
-    case trendingGifs = "gifs/trending/"
+    case trendingGifs = "gifs/trending"
 }

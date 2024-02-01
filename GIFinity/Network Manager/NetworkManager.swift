@@ -16,12 +16,10 @@ class NetworkManager {
                                     parameters: Parameters? = nil,
                                     encoding: ParameterEncoding = URLEncoding.default,
                                     completion: @escaping (T?, Error?) -> Void) {
-        
-        var apiParam = parameters ?? [:]
-        apiParam["api_key"] = NetworkHelper.apiKey
-        AF.request("\(NetworkHelper.baseURL)\(endpoint)",
+
+        AF.request(endpoint,
                    method: method,
-                   parameters: apiParam,
+                   parameters: parameters,
                    encoding: encoding).responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):
@@ -30,7 +28,6 @@ class NetworkManager {
                 completion(nil, error)
             }
         }
-        print("\(NetworkHelper.baseURL)\(endpoint)")
-
+//        print("\(NetworkHelper.baseURL)\(endpoint)")
     }
 }

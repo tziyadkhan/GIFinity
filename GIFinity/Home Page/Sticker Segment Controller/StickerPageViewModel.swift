@@ -25,6 +25,7 @@ class StickerPageViewModel {
             }
         }
     }
+    
     func pagination(index: Int) {
         if index == stickerItems.count - 2 &&
             stickerData?.pagination?.count ?? 0 <= stickerData?.pagination?.totalCount ?? 0 {

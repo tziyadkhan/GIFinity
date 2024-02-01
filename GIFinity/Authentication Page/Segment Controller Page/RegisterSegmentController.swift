@@ -10,8 +10,10 @@ import UIKit
 class RegisterSegmentController: UIViewController {
 
     @IBOutlet weak var regEmailTextField: UITextField!
-    @IBOutlet weak var regUsernameTextField: UITextField!
+    @IBOutlet weak var regFullnameTextField: UITextField!
     @IBOutlet weak var regPasswordTextField: UITextField!
+    
+    var onLogin: ((String?, String?) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +21,16 @@ class RegisterSegmentController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func signupButton(_ sender: Any) {
+        register()
+        print("test")
     }
     
     @IBAction func alreadyStartedRegButton(_ sender: Any) {
+        
     }
     
     @IBAction func signInGoogle(_ sender: Any) {
+        
     }
     
     
@@ -55,6 +61,14 @@ class RegisterSegmentController: UIViewController {
     }
 }
 
-
+extension RegisterSegmentController {
+    func register() {
+        let user = Profile(fullname: regFullnameTextField.text ?? "",
+                           email: regEmailTextField.text ?? "",
+                           password: regPasswordTextField.text ?? "")
+        onLogin?(regEmailTextField.text, regPasswordTextField.text)
+        navigationController?.popViewController(animated: true)
+    }
+}
 //safari window saytlar ucun
 
