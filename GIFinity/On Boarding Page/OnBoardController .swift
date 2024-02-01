@@ -18,7 +18,7 @@ class OnBoardController: UIViewController {
     }
     
     @IBAction func getStartedButton(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "AuthPageController") as! AuthPageController
+        let controller = storyboard?.instantiateViewController(withIdentifier: "RegistrationPageController") as! RegistrationPageController
         navigationController?.show(controller, sender: nil)
     }
     

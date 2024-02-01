@@ -39,6 +39,8 @@
 		908D6D142B6A6EEB009F71E9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 908D6D132B6A6EEB009F71E9 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		908D6D162B6A6EEB009F71E9 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 908D6D152B6A6EEB009F71E9 /* FirebaseAppCheck */; };
 		908D6D182B6A8B64009F71E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908D6D172B6A8B64009F71E9 /* GoogleService-Info.plist */; };
+		908D6D1B2B6B9D6B009F71E9 /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D1A2B6B9D6B009F71E9 /* LoginPageController.swift */; };
+		908D6D1E2B6B9D85009F71E9 /* RegistrationPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D1D2B6B9D85009F71E9 /* RegistrationPageController.swift */; };
 		909475732B56C8B800FFF157 /* icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 909475722B56C8B800FFF157 /* icon.gif */; };
 		9094757C2B56D39100FFF157 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 9094757B2B56D39100FFF157 /* CHTCollectionViewWaterfallLayout */; };
 		9094757E2B56D39100FFF157 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 9094757D2B56D39100FFF157 /* CHTCollectionViewWaterfallLayoutObjC */; };
@@ -84,6 +86,8 @@
 		906407FA2B5134E9007C3ECB /* TrendingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingManager.swift; sourceTree = "<group>"; };
 		908D6D0A2B6A64EB009F71E9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		908D6D172B6A8B64009F71E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		908D6D1A2B6B9D6B009F71E9 /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
+		908D6D1D2B6B9D85009F71E9 /* RegistrationPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageController.swift; sourceTree = "<group>"; };
 		909475722B56C8B800FFF157 /* icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icon.gif; sourceTree = "<group>"; };
 		9094757F2B56D3C200FFF157 /* ImageCollecttionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollecttionCell.swift; sourceTree = "<group>"; };
 		909475812B56D51A00FFF157 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				906006A12B4D391E00D04863 /* AuthPageController.swift */,
+				908D6D192B6B9D5B009F71E9 /* Login Page */,
+				908D6D1C2B6B9D71009F71E9 /* Registration Page */,
 				904196C22B4D4C2800C9A099 /* Segment Controller Page */,
 			);
 			path = "Authentication Page";
@@ -256,6 +262,22 @@
 				908D6D0A2B6A64EB009F71E9 /* Profile.swift */,
 			);
 			path = "Data Manager";
+			sourceTree = "<group>";
+		};
+		908D6D192B6B9D5B009F71E9 /* Login Page */ = {
+			isa = PBXGroup;
+			children = (
+				908D6D1A2B6B9D6B009F71E9 /* LoginPageController.swift */,
+			);
+			path = "Login Page";
+			sourceTree = "<group>";
+		};
+		908D6D1C2B6B9D71009F71E9 /* Registration Page */ = {
+			isa = PBXGroup;
+			children = (
+				908D6D1D2B6B9D85009F71E9 /* RegistrationPageController.swift */,
+			);
+			path = "Registration Page";
 			sourceTree = "<group>";
 		};
 		909475792B56D1CA00FFF157 /* Cells */ = {
@@ -390,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908D6D1B2B6B9D6B009F71E9 /* LoginPageController.swift in Sources */,
 				90C8BA6F2B5A7D340099A967 /* StickerListUseCase.swift in Sources */,
 				906407E72B51281C007C3ECB /* ProfilePageController.swift in Sources */,
 				9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */,
@@ -405,6 +428,7 @@
 				909475822B56D51A00FFF157 /* ImageExtension.swift in Sources */,
 				90C8BA652B5A5A760099A967 /* TrendingPageController.swift in Sources */,
 				90C8BA6D2B5A7D230099A967 /* StickerPageViewModel.swift in Sources */,
+				908D6D1E2B6B9D85009F71E9 /* RegistrationPageController.swift in Sources */,
 				904196C62B4D4C4D00C9A099 /* RegisterSegmentController.swift in Sources */,
 				909475802B56D3C200FFF157 /* ImageCollecttionCell.swift in Sources */,
 				90C8BA692B5A7D080099A967 /* StickerPageController.swift in Sources */,
