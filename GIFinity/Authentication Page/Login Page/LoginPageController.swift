@@ -26,7 +26,8 @@ class LoginPageController: UIViewController {
                 if let error {
                     self.showAlert(title: "Error", message: error.localizedDescription)
                 } else if let _ = result?.user {
-                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "\(HomePageController.self)") as! HomePageController
+                    self.setRoot()
+                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "\(TabBarController.self)") as! TabBarController
                     self.navigationController?.show(controller, sender: true)
                 }
             }
@@ -79,5 +80,13 @@ extension LoginPageController {
         let okayButton = UIAlertAction(title: "Okay", style: .default)
         alertController.addAction(okayButton)
         self.present(alertController, animated: true)
+    }
+    
+    func setRoot() {
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = scene.delegate as? SceneDelegate {
+            UserDefaults.standard.set(true, forKey: "loggedIN")
+            sceneDelegate.homePage(window: scene)
+        }
     }
 }

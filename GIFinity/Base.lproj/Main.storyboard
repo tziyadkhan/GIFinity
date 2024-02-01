@@ -741,14 +741,30 @@
                     <view key="view" contentMode="scaleToFill" id="gyJ-Cd-aOX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQD-0D-zt3">
+                                <rect key="frame" x="171" y="409" width="52" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Exit"/>
+                                <connections>
+                                    <action selector="exit:" destination="gpD-xC-Xbk" eventType="touchUpInside" id="69s-Ow-8ML"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zBg-eG-gVG"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="zBg-eG-gVG" firstAttribute="bottom" secondItem="FQD-0D-zt3" secondAttribute="bottom" constant="325" id="TKR-j3-NpK"/>
+                            <constraint firstItem="FQD-0D-zt3" firstAttribute="top" secondItem="zBg-eG-gVG" secondAttribute="top" constant="306" id="WTg-GA-95k"/>
+                            <constraint firstItem="FQD-0D-zt3" firstAttribute="leading" secondItem="zBg-eG-gVG" secondAttribute="leading" constant="171" id="eqE-Mi-1gw"/>
+                            <constraint firstItem="zBg-eG-gVG" firstAttribute="trailing" secondItem="FQD-0D-zt3" secondAttribute="trailing" constant="170" id="yfw-nP-Nbz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="0kp-Kt-jm5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4j-8b-uqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9999.2366412213742" y="843.66197183098598"/>
+            <point key="canvasLocation" x="6763" y="844"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="f3J-BK-Eyu">
@@ -767,7 +783,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDJ-Gx-JYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7497" y="-2"/>
+            <point key="canvasLocation" x="7715" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oT5-zU-kTt">
@@ -786,7 +802,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xm7-Id-R9u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9292.3664122137397" y="843.66197183098598"/>
+            <point key="canvasLocation" x="6005" y="844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Snn-Rj-Prb">
@@ -821,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="niF-1E-Y3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6846.5648854961828" y="843.66197183098598"/>
+            <point key="canvasLocation" x="10088" y="844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YDO-wP-gwv">
@@ -840,7 +856,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uG6-AM-yny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6115.2671755725187" y="843.66197183098598"/>
+            <point key="canvasLocation" x="9321" y="844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u4a-D2-ENB">

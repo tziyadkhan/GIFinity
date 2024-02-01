@@ -16,9 +16,12 @@ class OnBoardController: UIViewController {
         super.viewDidLoad()
        configUI()
     }
+    
     @IBAction func getStartedButton(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
         navigationController?.show(controller, sender: nil)
+        setRoot()
+        print(UserDefaults.standard.bool(forKey: "getStarted"))
     }
 }
 
@@ -30,5 +33,13 @@ extension OnBoardController {
         let centralGif = UIImage.gifImageWithName("centralGif")
         centralGIF.image = centralGif
         
+    }
+    
+    func setRoot() {
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = scene.delegate as? SceneDelegate {
+            UserDefaults.standard.set(true, forKey: "getStarted")
+            sceneDelegate.loginPage(window: scene)
+        }
     }
 }

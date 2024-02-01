@@ -11,20 +11,33 @@ class ProfilePageController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        title = "Profile"
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func exit(_ sender: Any) {
+        showAlert(title: "Warning", message: "Are you sure you want to exit?")
     }
-    */
+}
 
+extension ProfilePageController {
+    
+    func setRoot() {
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = scene.delegate as? SceneDelegate {
+            UserDefaults.standard.setValue(false, forKey: "loggedIN") // Setting the flag
+            sceneDelegate.loginPage(window: scene)
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okaybutton = UIAlertAction(title: "Log out", style: .default) { (_) in
+            self.setRoot()
+        }
+        let cancelButton = UIAlertAction(title: "Stay", style: .cancel)
+        
+        alertController.addAction(okaybutton)
+        alertController.addAction(cancelButton)
+        present(alertController, animated: true)
+    }
 }
