@@ -15,58 +15,48 @@ class RegistrationPageController: UIViewController {
     @IBOutlet weak var regEmailTextField: UITextField!
     @IBOutlet weak var regPasswordTextField: UITextField!
     
+    var adapter: LoginAdapter?
     var tickValidation = false
+    let urlHelper = URLs()
     var onLogin: ((String, String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        adapter = LoginAdapter(controller: self)
     }
     
     @IBAction func signupButton(_ sender: Any) {
-        if let fullname = regFullnameTextField.text,
-           let email = regEmailTextField.text,
-           let password = regPasswordTextField.text {
-            Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
-                if let error {
-//                    print(error.localizedDescription)
-                    self?.showAlert(title: "Error", message: error.localizedDescription)
-                } else if let user = result?.user {
-                    self?.onLogin?(user.email ?? "", password)
-                    self?.navigationController?.popViewController(animated: true)
-                    print(user)
-                }
-            }
+        if tickValidation {
+            signUP()
+        } else {
+            showAlert(title: "Error", message: "Please agree with Terms & Conditions")
         }
-    }
-    
-    @IBAction func haveAccountButton(_ sender: Any) {
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
-//        navigationController?.show(controller, sender: nil)
-        navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func signWithGoogle(_ sender: Any) {
         
     }
     
+    @IBAction func haveAccountButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
-    @IBAction func privacyTerms(_ sender: Any) {
-        if let url = URL(string: "https://policies.google.com/privacy?hl=en-US") {
-            UIApplication.shared.open(url)
-        }
+    @IBAction func googleSignIn(_ sender: Any) {
+        adapter?.login(loginType: .google)
+    }
+    
+    
+    @IBAction func googlePrivacy(_ sender: Any) {
+        urlHelper.callURL(urlType: .googlePrivacyTerms)
+
     }
     
     @IBAction func termsOfService(_ sender: Any) {
-        if let url = URL(string: "https://support.giphy.com/hc/en-us/articles/360020027752-GIPHY-User-Terms-of-Service#:~:text=Please%20do%20not%20publicly%20post,in%20connection%20with%20its%20Services.") {
-            UIApplication.shared.open(url)
-        }
+        urlHelper.callURL(urlType: .termsOfService)
+
     }
     
     @IBAction func privacyPolicy(_ sender: Any) {
-        if let url = URL(string: "https://support.giphy.com/hc/en-us/articles/360032872931") {
-            UIApplication.shared.open(url)
-        }
+        urlHelper.callURL(urlType: .privacyTerms)
+
     }
     
     @IBAction func tickButton(_ sender: UIButton) {
@@ -78,11 +68,11 @@ class RegistrationPageController: UIViewController {
             tickValidation = true
         }
     }
-    
 }
 
 //MARK: Functions
 extension RegistrationPageController {
+    
     func configUI() {
         let backgroundGif = UIImage.gifImageWithName("background")
         backgroundGIF.image = backgroundGif
@@ -96,5 +86,22 @@ extension RegistrationPageController {
         let okayButton = UIAlertAction(title: "Okay", style: .default)
         alertController.addAction(okayButton)
         self.present(alertController, animated: true)
+    }
+    
+    func signUP() {
+        if let fullname = regFullnameTextField.text,
+           let email = regEmailTextField.text,
+           let password = regPasswordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
+                if let error {
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                } else if let user = result?.user {
+                    var user = UserProfile(fullname: fullname, email: email, password: "")
+                    self?.onLogin?(user.email ?? "", password)
+                    self?.navigationController?.popViewController(animated: true)
+                    print(user)
+                }
+            }
+        }
     }
 }

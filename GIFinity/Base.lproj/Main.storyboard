@@ -207,7 +207,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="signWithGoogleButton:" destination="lch-mr-uTG" eventType="touchUpInside" id="AAK-eq-fgS"/>
+                                                    <action selector="googleSignIn:" destination="lch-mr-uTG" eventType="touchUpInside" id="e79-Hx-HAv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -469,7 +469,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="signWithGoogle:" destination="UGl-nO-AMl" eventType="touchUpInside" id="6RE-Qp-7gr"/>
+                                                    <action selector="googleSignIn:" destination="UGl-nO-AMl" eventType="touchUpInside" id="XJG-3j-cmW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -497,7 +497,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="privacyTerms:" destination="UGl-nO-AMl" eventType="touchUpInside" id="dXK-y5-TUN"/>
+                                    <action selector="googlePrivacy:" destination="UGl-nO-AMl" eventType="touchUpInside" id="wNF-jM-IiI"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gLm-cE-b7S">
@@ -692,12 +692,14 @@
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6I-WI-UPs">
                                 <rect key="frame" x="0.0" y="219" width="393" height="633"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="hP8-hm-9cI" kind="embed" id="n0b-5e-cZC"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w7-ur-rff">
                                 <rect key="frame" x="0.0" y="219" width="393" height="633"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="CLt-99-hHP" kind="embed" id="hZ2-O9-uK5"/>
                                 </connections>

@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func onBoardPage(window: UIWindowScene) {
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnBoardController") as! OnBoardController
+        let _ = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnBoardController") as! OnBoardController
         self.window?.makeKeyAndVisible()
     }
 

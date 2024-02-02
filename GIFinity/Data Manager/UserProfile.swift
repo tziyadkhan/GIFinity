@@ -1,5 +1,5 @@
 //
-//  Profile.swift
+//  UserProfile.swift
 //  GIFinity
 //
 //  Created by Ziyadkhan on 31.01.24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Profile {
+struct UserProfile {
     let fullname: String?
     let email: String?
     let password: String?
