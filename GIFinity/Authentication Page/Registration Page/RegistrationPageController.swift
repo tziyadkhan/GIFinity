@@ -41,8 +41,9 @@ class RegistrationPageController: UIViewController {
     }
     
     @IBAction func haveAccountButton(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
-        navigationController?.show(controller, sender: nil)
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
+//        navigationController?.show(controller, sender: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func signWithGoogle(_ sender: Any) {
