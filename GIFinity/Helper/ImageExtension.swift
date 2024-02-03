@@ -11,6 +11,6 @@ import Alamofire
 import SDWebImage
 extension UIImageView {
     func showImage(imageURL: String?) {
-        self.sd_setImage(with: URL(string: "\(imageURL ?? "")"))
+        self.sd_setImage(with: URL(string: "\(imageURL ?? "")"), placeholderImage: UIImage(named: "purple"))
     }
 }

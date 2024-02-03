@@ -9,7 +9,7 @@ import UIKit
 import CHTCollectionViewWaterfallLayout
 
 class TrendingPageController: UIViewController {
-
+    
     @IBOutlet weak var trendingCollection: UICollectionView!
     
     let viewModel = TrendingPageViewModel()
@@ -32,8 +32,8 @@ class TrendingPageController: UIViewController {
 
 //MARK: Collection View Functions
 extension TrendingPageController: UICollectionViewDelegate,
-                                    UICollectionViewDataSource,
-                                    CHTCollectionViewDelegateWaterfallLayout {
+                                  UICollectionViewDataSource,
+                                  CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.trendingGifItems.count
@@ -47,17 +47,24 @@ extension TrendingPageController: UICollectionViewDelegate,
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+        navigationController?.show(controller, sender: nil)
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let width = Int(viewModel.trendingGifItems[indexPath.item].images?.original?.width ?? "100"),
               let height = Int(viewModel.trendingGifItems[indexPath.item].images?.original?.height ?? "100") else {
-                return CGSize(width: 100, height: 100)
-            }
+            return CGSize(width: 100, height: 100)
+        }
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         viewModel.pagination(index: indexPath.item)
-//        print("\(indexPath.item)")
+        //        print("\(indexPath.item)")
     }
 }
 
@@ -70,7 +77,7 @@ extension TrendingPageController {
         viewModel.success = {
             self.trendingCollection.reloadData()
             self.refreshControl.endRefreshing()
-
+            
         }
         viewModel.getItems()
     }
@@ -86,3 +93,4 @@ extension TrendingPageController {
         trendingCollection.refreshControl = refreshControl
     }
 }
+//https://github.com/Juanpe/SkeletonView

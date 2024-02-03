@@ -32,4 +32,8 @@ class StickerPageViewModel {
             getItems()
         }
     }
+    func reset() {
+        stickerData = nil
+        stickerItems.removeAll()
+    }
 }

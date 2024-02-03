@@ -24,6 +24,11 @@ class RegistrationPageController: UIViewController {
         super.viewDidLoad()
         configUI()
         adapter = LoginAdapter(controller: self)
+        adapter?.userCompletion = { user in
+            self.regFullnameTextField.text = user.fullname ?? ""
+            self.regEmailTextField.text = user.email ?? ""
+            print(user)
+        }
     }
     
     @IBAction func signupButton(_ sender: Any) {

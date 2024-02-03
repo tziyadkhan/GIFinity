@@ -10,19 +10,24 @@ import UIKit
 class ImageCollecttionCell: UICollectionViewCell {
     static let identifier = "ImageCollecttionCell"
     
-     let gifImage: UIImageView = {
+    let gifImage: UIImageView = {
         let gif = UIImageView()
+//        gif.backgroundColor = .green
+        gif.layer.cornerRadius = 5
+        gif.layer.masksToBounds = true
         gif.contentMode = .scaleAspectFill
-//         gif.backgroundColor = .
-         gif.layer.cornerRadius = 5
-         gif.layer.masksToBounds = true
+        gif.translatesAutoresizingMaskIntoConstraints = false
         return gif
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(gifImage)
-        contentView.clipsToBounds = true
+        
+//        contentView.addSubview(gifImage)
+//        contentView.clipsToBounds = true
+//        contentView.isSkeletonable = true
+        
+        configureConstraint()
     }
     
     required init?(coder: NSCoder) {
@@ -31,12 +36,23 @@ class ImageCollecttionCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        gifImage.frame = contentView.bounds
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        gifImage.image = nil
+        
+//        gifImage.image = nil
+//        gifImage.isSkeletonable = true
+    }
+    
+    fileprivate func configureConstraint() {
+        addSubview(gifImage)
+        NSLayoutConstraint.activate([
+            gifImage.topAnchor.constraint(equalTo: topAnchor),
+            gifImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            gifImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            gifImage.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
     
     func configure(image: String) {

@@ -23,11 +23,7 @@ class LoginPageController: UIViewController {
         super.viewDidLoad()
         configUI()
         adapter = LoginAdapter(controller: self)
-        
-        adapter?.userCompletion = { user in
-            self.database.saveUser(user: user)
-            print(user)
-        }
+    
     }
     
     @IBAction func loginButton(_ sender: Any) {

@@ -14,16 +14,26 @@ class StickerPageController: UIViewController {
     
     let viewmodel = StickerPageViewModel()
     let layout = CHTCollectionViewWaterfallLayout()
+    let refreshControl = UIRefreshControl()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewModel()
         configureCollection()
     }
+    
+    @objc func pullToRefresh() {
+        viewmodel.reset()
+        stickerCollection.reloadData()
+        viewmodel.getItems()
+    }
 }
 
 //MARK: Collection View Functions
-extension StickerPageController: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
+extension StickerPageController: UICollectionViewDelegate,
+                                    UICollectionViewDataSource,
+                                    CHTCollectionViewDelegateWaterfallLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewmodel.stickerItems.count
@@ -38,6 +48,11 @@ extension StickerPageController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+        navigationController?.show(controller, sender: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let height = Int(viewmodel.stickerItems[indexPath.item].images?.original?.height ?? "100"),
               let width = Int(viewmodel.stickerItems[indexPath.item].images?.original?.width ?? "100") else {
@@ -45,6 +60,7 @@ extension StickerPageController: UICollectionViewDelegate, UICollectionViewDataS
         }
         return CGSize(width: width, height: height)
     }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         viewmodel.pagination(index: indexPath.item)
     }
@@ -58,6 +74,8 @@ extension StickerPageController {
         }
         viewmodel.success = {
             self.stickerCollection.reloadData()
+            self.refreshControl.endRefreshing()
+
         }
         viewmodel.getItems()
     }
@@ -68,5 +86,10 @@ extension StickerPageController {
         stickerCollection.collectionViewLayout = layout
         stickerCollection.register(ImageCollecttionCell.self,
                                    forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
+        
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.tintColor = .red
+        refreshControl.backgroundColor = .stickerCell
+        stickerCollection.refreshControl = refreshControl
     }
 }
