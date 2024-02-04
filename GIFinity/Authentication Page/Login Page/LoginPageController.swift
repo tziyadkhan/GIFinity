@@ -23,7 +23,6 @@ class LoginPageController: UIViewController {
         super.viewDidLoad()
         configUI()
         adapter = LoginAdapter(controller: self)
-    
     }
     
     @IBAction func loginButton(_ sender: Any) {

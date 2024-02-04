@@ -17,8 +17,6 @@ class LoginAdapter {
         self.controller = controller
     }
     
-    
-    
     func login(loginType: LoginType) {
         switch loginType {
         case .google:
@@ -34,9 +32,9 @@ class LoginAdapter {
         GIDSignIn.sharedInstance.signIn(withPresenting: controller) { result, error in
             if let error {
                 print(error.localizedDescription)
-            } else if let result {
-                var fullname = "\(result.user.profile?.name ?? "") \(result.user.profile?.familyName ?? "")"
-                var user = UserProfile(fullname: fullname ,
+            } else if let result { //partlasa var ile deyish(fullname&user)
+                let fullname = "\(result.user.profile?.name ?? "") \(result.user.profile?.familyName ?? "")"
+                let user = UserProfile(fullname: fullname ,
                                    email: result.user.profile?.email,
                                    password: "")
                 self.userCompletion?(user)

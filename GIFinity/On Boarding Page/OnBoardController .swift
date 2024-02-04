@@ -21,7 +21,7 @@ class OnBoardController: UIViewController {
         let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
         navigationController?.show(controller, sender: nil)
         setRoot()
-        print(UserDefaults.standard.bool(forKey: "getStarted"))
+//        print(UserDefaults.standard.bool(forKey: "getStarted"))
     }
 }
 

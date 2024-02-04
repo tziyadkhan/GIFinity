@@ -50,6 +50,11 @@ extension StickerPageController: UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+        let selectedItem = viewmodel.stickerItems[indexPath.item]
+        let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
+                                           avatar: selectedItem.user?.avatarURL ?? "",
+                                           username: selectedItem.username ?? "")
+        controller.selectedItem = selectedGIF
         navigationController?.show(controller, sender: nil)
     }
     

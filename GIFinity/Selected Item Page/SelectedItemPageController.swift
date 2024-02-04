@@ -15,24 +15,30 @@ class SelectedItemPageController: UIViewController {
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var relatedGIFCollection: UICollectionView!
     
+    var selectedItem: SelectedGifModel?
     let layout = CHTCollectionViewWaterfallLayout()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollection()   
+        configureCollection()  
+        fillItems()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
+        
     }
     
     
-    @IBAction func downloadButton(_ sender: Any) {
+    @IBAction func saveGIF(_ sender: Any) {
+        guard let image = selectedGIFImageView.image else {return}
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: image)
     }
     
     
     @IBAction func shareButton(_ sender: Any) {
+        
     }
     
 }
@@ -44,19 +50,31 @@ extension SelectedItemPageController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
-        cell.configure(image: "purple")
         return cell
     }
-    
-    
 }
 
-//MARK:
+//MARK: Functions
 extension SelectedItemPageController {
+    
     func configureCollection() {
         layout.columnCount = 2
         layout.itemRenderDirection = .leftToRight
         relatedGIFCollection.collectionViewLayout = layout
         relatedGIFCollection.register(ImageCollecttionCell.self, forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
     }
+    
+    func fillItems() {
+        selectedGIFImageView.showImage(imageURL: selectedItem?.selectedImage)
+        profileImage.showImage(imageURL: selectedItem?.avatar)
+        profileNameLabel.text = selectedItem?.username
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let okayButton = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okayButton)
+        present(alertController, animated: true)
+    }
 }
+

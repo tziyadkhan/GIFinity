@@ -27,7 +27,7 @@ class RegistrationPageController: UIViewController {
         adapter?.userCompletion = { user in
             self.regFullnameTextField.text = user.fullname ?? ""
             self.regEmailTextField.text = user.email ?? ""
-            print(user)
+//            print(user)
         }
     }
     
@@ -104,7 +104,7 @@ extension RegistrationPageController {
                     var user = UserProfile(fullname: fullname, email: email, password: "")
                     self?.onLogin?(user.email ?? "", password)
                     self?.navigationController?.popViewController(animated: true)
-                    print(user)
+//                    print(user)
                 }
             }
         }

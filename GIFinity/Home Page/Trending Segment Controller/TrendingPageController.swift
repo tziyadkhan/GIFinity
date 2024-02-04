@@ -12,7 +12,7 @@ class TrendingPageController: UIViewController {
     
     @IBOutlet weak var trendingCollection: UICollectionView!
     
-    let viewModel = TrendingPageViewModel()
+    let viewmodel = TrendingPageViewModel()
     let layout = CHTCollectionViewWaterfallLayout()
     let refreshControl = UIRefreshControl()
     
@@ -24,62 +24,66 @@ class TrendingPageController: UIViewController {
     }
     
     @objc func pullToRefresh() {
-        viewModel.reset()
+        viewmodel.reset()
         trendingCollection.reloadData()
-        viewModel.getItems()
+        viewmodel.getItems()
     }
 }
 
 //MARK: Collection View Functions
 extension TrendingPageController: UICollectionViewDelegate,
                                   UICollectionViewDataSource,
-                                  CHTCollectionViewDelegateWaterfallLayout {
+                                  CHTCollectionViewDelegateWaterfallLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.trendingGifItems.count
+        viewmodel.trendingGifItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
-        if let imageURL = viewModel.trendingGifItems[indexPath.item].images?.original?.url {
+        if let imageURL = viewmodel.trendingGifItems[indexPath.item].images?.original?.url {
             cell.gifImage.showImage(imageURL: imageURL)
         }
         return cell
     }
-    
+   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+        let selectedItem = viewmodel.trendingGifItems[indexPath.item]
+        let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
+                                           avatar: selectedItem.user?.avatarURL ?? "",
+                                           username: selectedItem.username ?? "")
+        controller.selectedItem = selectedGIF
         navigationController?.show(controller, sender: nil)
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let width = Int(viewModel.trendingGifItems[indexPath.item].images?.original?.width ?? "100"),
-              let height = Int(viewModel.trendingGifItems[indexPath.item].images?.original?.height ?? "100") else {
+        guard let width = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.width ?? "100"),
+              let height = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.height ?? "100") else {
             return CGSize(width: 100, height: 100)
         }
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        viewModel.pagination(index: indexPath.item)
-        //        print("\(indexPath.item)")
+        viewmodel.pagination(index: indexPath.item)
     }
 }
 
 //MARK: Functions
 extension TrendingPageController {
     func configureViewModel() {
-        viewModel.error = { error in
+        viewmodel.error = { error in
             print(error!)
         }
-        viewModel.success = {
+        viewmodel.success = {
             self.trendingCollection.reloadData()
             self.refreshControl.endRefreshing()
             
         }
-        viewModel.getItems()
+        viewmodel.getItems()
     }
     func configureCollectionView() {
         layout.columnCount = 2
@@ -93,4 +97,3 @@ extension TrendingPageController {
         trendingCollection.refreshControl = refreshControl
     }
 }
-//https://github.com/Juanpe/SkeletonView
