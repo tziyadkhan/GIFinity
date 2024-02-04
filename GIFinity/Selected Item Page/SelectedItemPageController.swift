@@ -7,9 +7,11 @@
 
 import UIKit
 import CHTCollectionViewWaterfallLayout
+import Photos
+
 
 class SelectedItemPageController: UIViewController {
-
+    
     @IBOutlet weak var selectedGIFImageView: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileNameLabel: UILabel!
@@ -18,9 +20,10 @@ class SelectedItemPageController: UIViewController {
     var selectedItem: SelectedGifModel?
     let layout = CHTCollectionViewWaterfallLayout()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollection()  
+        configureCollection()
         fillItems()
         // Do any additional setup after loading the view.
     }
@@ -29,14 +32,17 @@ class SelectedItemPageController: UIViewController {
         
     }
     
-    
     @IBAction func saveGIF(_ sender: Any) {
-        guard let image = selectedGIFImageView.image else {return}
-        let imageSaver = ImageSaver()
-        imageSaver.writeToPhotoAlbum(image: image)
+//        DispatchQueue.main.async {
+            if let gifData = try? Data(contentsOf: URL(string: self.selectedItem?.selectedImage ?? "")!) {
+                self.saveGifToPhotosLibrary(gifData: gifData)
+                self.showAlert(title: "Saved", message: "Your GIF has been saved to your photos")
+            } else {
+                self.showAlert(title: "Error", message: "Failed to save GIF")
+            }
+//        }
+        
     }
-    
-    
     @IBAction func shareButton(_ sender: Any) {
         
     }
@@ -75,6 +81,19 @@ extension SelectedItemPageController {
         let okayButton = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(okayButton)
         present(alertController, animated: true)
+    }
+    
+    func saveGifToPhotosLibrary(gifData: Data) {
+        PHPhotoLibrary.shared().performChanges {
+            let creationRequest = PHAssetCreationRequest.forAsset()
+            creationRequest.addResource(with: .photo, data: gifData, options: nil)
+        } completionHandler: { success, error in
+            if success {
+                print("GIF saved successfully.")
+            } else if let error = error {
+                print("Error saving GIF: \(error.localizedDescription)")
+            }
+        }
     }
 }
 
