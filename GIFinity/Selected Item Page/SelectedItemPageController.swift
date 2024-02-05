@@ -19,12 +19,14 @@ class SelectedItemPageController: UIViewController {
     
     var selectedItem: SelectedGifModel?
     let layout = CHTCollectionViewWaterfallLayout()
+    let viewmodel = SelectedItemViewModel()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollection()
         fillItems()
+        configureViewModel()
         // Do any additional setup after loading the view.
     }
     
@@ -49,13 +51,28 @@ class SelectedItemPageController: UIViewController {
     
 }
 
-extension SelectedItemPageController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SelectedItemPageController: UICollectionViewDelegate,
+                                      UICollectionViewDataSource,
+                                      CHTCollectionViewDelegateWaterfallLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let width = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.width ?? "100"),
+              let height = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.height ?? "100") else {
+            return CGSize(width: 100, height: 100)
+        }
+        return CGSize(width: width, height: height)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        viewmodel.trendingGifItems.count
+//        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
+//        cell.gifImage.image = UIImage(named: "purple")
+        if let imageURL = viewmodel.trendingGifItems[indexPath.item].images?.original?.url {
+            cell.gifImage.showImage(imageURL: imageURL)
+        }
         return cell
     }
 }
@@ -103,6 +120,17 @@ extension SelectedItemPageController {
         let shareSheetVC = UIActivityViewController (activityItems: [image, url],
                                                      applicationActivities: nil)
         present(shareSheetVC, animated: true)
+    }
+    
+    func configureViewModel() {
+        viewmodel.error = { error in
+            print(error!)
+        }
+        viewmodel.success = {
+            self.relatedGIFCollection.reloadData()
+            print(self.viewmodel.trendingGifItems)
+        }
+        viewmodel.getItems()
     }
 }
 

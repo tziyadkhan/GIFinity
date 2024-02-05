@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol SelectedItemUseCase {
+    func getTrendingGifList(completion: @escaping ((TrendingModel?, Error?) -> Void))
+}

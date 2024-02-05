@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class SelectedItemManager:SelectedItemUseCase {
+    func getTrendingGifList(completion: @escaping ((TrendingModel?, Error?) -> Void)) {
+        let url = NetworkHelper.join(endpoint: TrendingEndpoint.trendingGifs.rawValue)
+        NetworkManager.request(model: TrendingModel.self,
+                               endpoint: url,
+                               completion: completion)
+    }
+}
