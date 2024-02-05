@@ -28,6 +28,5 @@ class NetworkManager {
                 completion(nil, error)
             }
         }
-//        print("\(NetworkHelper.baseURL)\(endpoint)")
     }
 }

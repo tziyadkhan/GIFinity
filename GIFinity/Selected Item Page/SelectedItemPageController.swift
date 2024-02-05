@@ -44,7 +44,7 @@ class SelectedItemPageController: UIViewController {
         
     }
     @IBAction func shareButton(_ sender: Any) {
-        
+        shareButton()
     }
     
 }
@@ -94,6 +94,15 @@ extension SelectedItemPageController {
                 print("Error saving GIF: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func shareButton() {
+        guard let image = selectedGIFImageView.image,
+              let url = selectedItem?.selectedImage else {return}
+        
+        let shareSheetVC = UIActivityViewController (activityItems: [image, url],
+                                                     applicationActivities: nil)
+        present(shareSheetVC, animated: true)
     }
 }
 

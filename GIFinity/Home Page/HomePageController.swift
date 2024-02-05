@@ -9,7 +9,6 @@ import UIKit
 
 class HomePageController: UIViewController {
     
-    @IBOutlet weak var iconGIF: UIImageView!
     @IBOutlet weak var categorySegmentOutlet: UISegmentedControl!
     @IBOutlet weak var stickerSegment: UIView!
     @IBOutlet weak var trendingSegment: UIView!
@@ -17,8 +16,13 @@ class HomePageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configSegment()
-        configUI()
     }
+    
+    @IBAction func searchButton(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SearchPageController.self)") as! SearchPageController
+        navigationController?.show(controller, sender: nil)
+    }
+    
     
     @IBAction func categorySelection(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -37,13 +41,7 @@ class HomePageController: UIViewController {
         }
     }
     
-    @IBAction func searchTextField(_ sender: Any) {
-        
-    }
-    
-    @IBAction func searchButton(_ sender: Any) {
-        
-    }
+
     
 }
 extension HomePageController {
@@ -53,8 +51,5 @@ extension HomePageController {
             .font: UIFont.systemFont(ofSize: 13, weight: .semibold)]
         categorySegmentOutlet.setTitleTextAttributes(titleTextAttributes, for: .normal)
     }
-    func configUI() {
-        let icon = UIImage.gifImageWithName("icon")
-        iconGIF.image = icon
-    }
+    
 }
