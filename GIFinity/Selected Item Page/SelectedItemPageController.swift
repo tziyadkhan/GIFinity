@@ -64,16 +64,24 @@ extension SelectedItemPageController: UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewmodel.trendingGifItems.count
-//        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
-//        cell.gifImage.image = UIImage(named: "purple")
         if let imageURL = viewmodel.trendingGifItems[indexPath.item].images?.original?.url {
             cell.gifImage.showImage(imageURL: imageURL)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+        let selectedItem = viewmodel.trendingGifItems[indexPath.item]
+        let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
+                                           avatar: selectedItem.user?.avatarURL ?? "",
+                                           username: selectedItem.username ?? "")
+        controller.selectedItem = selectedGIF
+        navigationController?.show(controller, sender: nil)
     }
 }
 

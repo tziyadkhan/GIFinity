@@ -13,9 +13,16 @@ class HomePageController: UIViewController {
     @IBOutlet weak var stickerSegment: UIView!
     @IBOutlet weak var trendingSegment: UIView!
     
+    var userTest: UserProfile?
+    var adapter: LoginAdapter?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configSegment()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     @IBAction func searchButton(_ sender: Any) {

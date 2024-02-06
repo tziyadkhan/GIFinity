@@ -18,13 +18,17 @@ class LoginPageController: UIViewController {
     var adapter: LoginAdapter?
     let database = DatabaseAdapter()
     let urlHelper = URLs()
+    var userEmail: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
         adapter = LoginAdapter(controller: self)
+
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        print(userEmail ?? "bosh email")
+    }
     @IBAction func loginButton(_ sender: Any) {
         loginCheck()
     }
@@ -33,9 +37,6 @@ class LoginPageController: UIViewController {
         signUP()
     }
     
-    @IBAction func googleSignIn(_ sender: Any) {
-        adapter?.login(loginType: .google)
-    }
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
         
@@ -84,6 +85,7 @@ extension LoginPageController {
                 if let error {
                     self.showAlert(title: "Error", message: error.localizedDescription)
                 } else if let _ = result?.user {
+                    self.userEmail = result?.user.email ?? "bosh email"
                     self.setRoot()
                     let controller = self.storyboard?.instantiateViewController(withIdentifier: "\(TabBarController.self)") as! TabBarController
                     self.navigationController?.show(controller, sender: true)
@@ -100,4 +102,5 @@ extension LoginPageController {
         }
         navigationController?.show(controller, sender: nil)
     }
+    
 }

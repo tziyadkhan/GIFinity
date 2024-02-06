@@ -54,6 +54,16 @@ extension SearchPageController: UICollectionViewDelegate,
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+        let selectedItem = viewmodel.searchedGifItem[indexPath.item]
+        let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
+                                           avatar: selectedItem.user?.avatarURL ?? "",
+                                           username: selectedItem.username ?? "")
+        controller.selectedItem = selectedGIF
+        navigationController?.show(controller, sender: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let width = Int(viewmodel.searchedGifItem[indexPath.item].images?.original?.width ?? "100"),
               let height = Int(viewmodel.searchedGifItem[indexPath.item].images?.original?.height ?? "100") else {
