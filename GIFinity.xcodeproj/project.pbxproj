@@ -89,6 +89,8 @@
 		90C8BA6F2B5A7D340099A967 /* StickerListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8BA6E2B5A7D340099A967 /* StickerListUseCase.swift */; };
 		90C8BA712B5A7D460099A967 /* StickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8BA702B5A7D460099A967 /* StickerManager.swift */; };
 		90DE56412B760AC100C74B1A /* CurrentUserDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DE56402B760AC100C74B1A /* CurrentUserDetect.swift */; };
+		90DE56442B76167F00C74B1A /* profileBackgroundGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90DE56432B76167F00C74B1A /* profileBackgroundGIF.gif */; };
+		90DE56462B76181300C74B1A /* profileGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90DE56452B76181300C74B1A /* profileGIF.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +145,8 @@
 		90C8BA6E2B5A7D340099A967 /* StickerListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerListUseCase.swift; sourceTree = "<group>"; };
 		90C8BA702B5A7D460099A967 /* StickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerManager.swift; sourceTree = "<group>"; };
 		90DE56402B760AC100C74B1A /* CurrentUserDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserDetect.swift; sourceTree = "<group>"; };
+		90DE56432B76167F00C74B1A /* profileBackgroundGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = profileBackgroundGIF.gif; sourceTree = "<group>"; };
+		90DE56452B76181300C74B1A /* profileGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = profileGIF.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,8 +258,10 @@
 		90616E1F2B494EDE0023A2E7 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
+				90DE56452B76181300C74B1A /* profileGIF.gif */,
 				909475722B56C8B800FFF157 /* icon.gif */,
 				9060069E2B4D376400D04863 /* centralGif.gif */,
+				90DE56432B76167F00C74B1A /* profileBackgroundGIF.gif */,
 				90616E202B494EF90023A2E7 /* background.gif */,
 			);
 			path = Gifs;
@@ -517,10 +523,12 @@
 				90616E152B4940000023A2E7 /* LaunchScreen.storyboard in Resources */,
 				909475732B56C8B800FFF157 /* icon.gif in Resources */,
 				90616E122B4940000023A2E7 /* Assets.xcassets in Resources */,
+				90DE56442B76167F00C74B1A /* profileBackgroundGIF.gif in Resources */,
 				90616E212B494EF90023A2E7 /* background.gif in Resources */,
 				9060069F2B4D376400D04863 /* centralGif.gif in Resources */,
 				90616E102B493FFF0023A2E7 /* Main.storyboard in Resources */,
 				908D6D662B6CCA6B009F71E9 /* GoogleService-Info.plist in Resources */,
+				90DE56462B76181300C74B1A /* profileGIF.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
