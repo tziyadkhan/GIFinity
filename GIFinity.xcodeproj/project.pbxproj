@@ -88,6 +88,7 @@
 		90C8BA6D2B5A7D230099A967 /* StickerPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8BA6C2B5A7D230099A967 /* StickerPageViewModel.swift */; };
 		90C8BA6F2B5A7D340099A967 /* StickerListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8BA6E2B5A7D340099A967 /* StickerListUseCase.swift */; };
 		90C8BA712B5A7D460099A967 /* StickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8BA702B5A7D460099A967 /* StickerManager.swift */; };
+		90DE56412B760AC100C74B1A /* CurrentUserDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DE56402B760AC100C74B1A /* CurrentUserDetect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +142,7 @@
 		90C8BA6C2B5A7D230099A967 /* StickerPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPageViewModel.swift; sourceTree = "<group>"; };
 		90C8BA6E2B5A7D340099A967 /* StickerListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerListUseCase.swift; sourceTree = "<group>"; };
 		90C8BA702B5A7D460099A967 /* StickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerManager.swift; sourceTree = "<group>"; };
+		90DE56402B760AC100C74B1A /* CurrentUserDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserDetect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 				90616E232B4951670023A2E7 /* GifLoader.swift */,
 				909475812B56D51A00FFF157 /* ImageExtension.swift */,
 				908D6D702B6CE113009F71E9 /* URLs.swift */,
+				90DE56402B760AC100C74B1A /* CurrentUserDetect.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				908D6D0B2B6A64EB009F71E9 /* UserProfile.swift in Sources */,
 				906407F92B5134DD007C3ECB /* TrendingListUseCase.swift in Sources */,
 				908D6D7F2B6E3643009F71E9 /* SelectedItemUseCase.swift in Sources */,
+				90DE56412B760AC100C74B1A /* CurrentUserDetect.swift in Sources */,
 				906407DF2B512799007C3ECB /* TrendingPageViewModel.swift in Sources */,
 				909475822B56D51A00FFF157 /* ImageExtension.swift in Sources */,
 				90C8BA652B5A5A760099A967 /* TrendingPageController.swift in Sources */,

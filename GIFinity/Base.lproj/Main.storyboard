@@ -642,7 +642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AOn-Sb-hDW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7198" y="844"/>
+            <point key="canvasLocation" x="8140" y="844"/>
         </scene>
         <!--Search Page Controller-->
         <scene sceneID="cr4-h4-LbV">
@@ -725,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QV0-6d-Lm7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9132.061068702289" y="843.66197183098598"/>
+            <point key="canvasLocation" x="10198" y="844"/>
         </scene>
         <!--Profile-->
         <scene sceneID="4U6-Wi-Rkm">
@@ -795,7 +795,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xm7-Id-R9u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6207" y="-2"/>
+            <point key="canvasLocation" x="6292" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Snn-Rj-Prb">
@@ -814,7 +814,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddo-fh-VGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6430" y="844"/>
+            <point key="canvasLocation" x="7372" y="844"/>
         </scene>
         <!--Favourite-->
         <scene sceneID="qNo-V5-lZD">
@@ -823,14 +823,33 @@
                     <view key="view" contentMode="scaleToFill" id="wGU-og-K0y">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vUm-45-8Lz">
+                                <rect key="frame" x="16" y="103" width="361" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dHF-5d-Xht">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="sle-rp-ZQy"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="vUm-45-8Lz" firstAttribute="top" secondItem="sle-rp-ZQy" secondAttribute="top" id="Gf9-4o-Pxr"/>
+                            <constraint firstItem="sle-rp-ZQy" firstAttribute="trailing" secondItem="vUm-45-8Lz" secondAttribute="trailing" constant="16" id="IeH-9P-bDE"/>
+                            <constraint firstItem="vUm-45-8Lz" firstAttribute="leading" secondItem="sle-rp-ZQy" secondAttribute="leading" constant="16" id="Oxf-VH-b0i"/>
+                            <constraint firstAttribute="bottom" secondItem="vUm-45-8Lz" secondAttribute="bottom" id="yOf-Pj-1El"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favourite" id="RVG-yG-8M5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="niF-1E-Y3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9273" y="-2"/>
+            <point key="canvasLocation" x="9272.519083969466" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YDO-wP-gwv">
@@ -1147,7 +1166,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfL-Ul-IFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8206.8702290076326" y="843.66197183098598"/>
+            <point key="canvasLocation" x="9273" y="844"/>
         </scene>
     </scenes>
     <resources>
@@ -1185,16 +1204,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

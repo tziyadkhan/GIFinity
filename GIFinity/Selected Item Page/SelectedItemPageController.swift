@@ -8,6 +8,7 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 import Photos
+import FirebaseFirestoreInternal
 
 
 class SelectedItemPageController: UIViewController {
@@ -20,30 +21,23 @@ class SelectedItemPageController: UIViewController {
     var selectedItem: SelectedGifModel?
     let layout = CHTCollectionViewWaterfallLayout()
     let viewmodel = SelectedItemViewModel()
-    
+    let database = Firestore.firestore()
+    let userUID = CurrentUserDetect.currentUser()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollection()
         fillItems()
         configureViewModel()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
-        
+        addItems()
     }
     
     @IBAction func saveGIF(_ sender: Any) {
-//        DispatchQueue.main.async {
-            if let gifData = try? Data(contentsOf: URL(string: self.selectedItem?.selectedImage ?? "")!) {
-                self.saveGifToPhotosLibrary(gifData: gifData)
-                self.showAlert(title: "Saved", message: "Your GIF has been saved to your photos")
-            } else {
-                self.showAlert(title: "Error", message: "Failed to save GIF")
-            }
-//        }
-        
+        saveGIF()
     }
     @IBAction func shareButton(_ sender: Any) {
         shareButton()
@@ -51,16 +45,8 @@ class SelectedItemPageController: UIViewController {
     
 }
 
-extension SelectedItemPageController: UICollectionViewDelegate,
-                                      UICollectionViewDataSource,
-                                      CHTCollectionViewDelegateWaterfallLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let width = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.width ?? "100"),
-              let height = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.height ?? "100") else {
-            return CGSize(width: 100, height: 100)
-        }
-        return CGSize(width: width, height: height)
-    }
+//MARK: Collection Functions
+extension SelectedItemPageController: UICollectionViewDelegate,UICollectionViewDataSource,CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewmodel.trendingGifItems.count
@@ -82,6 +68,14 @@ extension SelectedItemPageController: UICollectionViewDelegate,
                                            username: selectedItem.username ?? "")
         controller.selectedItem = selectedGIF
         navigationController?.show(controller, sender: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let width = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.width ?? "100"),
+              let height = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.height ?? "100") else {
+            return CGSize(width: 100, height: 100)
+        }
+        return CGSize(width: width, height: height)
     }
 }
 
@@ -108,7 +102,7 @@ extension SelectedItemPageController {
         present(alertController, animated: true)
     }
     
-    func saveGifToPhotosLibrary(gifData: Data) {
+    func saveGifToPhotosHelper(gifData: Data) {
         PHPhotoLibrary.shared().performChanges {
             let creationRequest = PHAssetCreationRequest.forAsset()
             creationRequest.addResource(with: .photo, data: gifData, options: nil)
@@ -119,6 +113,17 @@ extension SelectedItemPageController {
                 print("Error saving GIF: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func saveGIF() {
+        //        DispatchQueue.main.async {
+        if let gifData = try? Data(contentsOf: URL(string: self.selectedItem?.selectedImage ?? "")!) {
+            self.saveGifToPhotosHelper(gifData: gifData)
+            self.showAlert(title: "Saved", message: "Your GIF has been saved to your photos")
+        } else {
+            self.showAlert(title: "Error", message: "Failed to save GIF")
+        }
+        //        }
     }
     
     func shareButton() {
@@ -139,6 +144,12 @@ extension SelectedItemPageController {
             print(self.viewmodel.trendingGifItems)
         }
         viewmodel.getItems()
+    }
+    
+    func addItems() {
+        let data = ["url" : "\(selectedItem?.selectedImage ?? "bosh url")", "uid" : "\(userUID)"]
+        database.collection("Favourites").addDocument(data: data)
+        showAlert(title: "Success", message: "Successfully added")
     }
 }
 

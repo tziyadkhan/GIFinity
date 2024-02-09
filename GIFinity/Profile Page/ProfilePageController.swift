@@ -9,17 +9,15 @@ import UIKit
 
 class ProfilePageController: UIViewController {
     
-    var user: String?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(user ?? "boshhh")
+
     }
     
     @IBAction func exit(_ sender: Any) {
         showAlert(title: "Warning", message: "Are you sure you want to exit?")
     }
+    
 }
 
 extension ProfilePageController {
@@ -44,4 +42,5 @@ extension ProfilePageController {
         alertController.addAction(cancelButton)
         present(alertController, animated: true)
     }
+
 }

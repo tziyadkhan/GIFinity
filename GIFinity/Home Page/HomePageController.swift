@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomePageController: UIViewController {
     
@@ -19,7 +20,6 @@ class HomePageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configSegment()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,9 +48,9 @@ class HomePageController: UIViewController {
         }
     }
     
-
-    
 }
+
+//MARK: Functions
 extension HomePageController {
     func configSegment() {
         let titleTextAttributes: [NSAttributedString.Key: Any] = [
@@ -58,5 +58,4 @@ extension HomePageController {
             .font: UIFont.systemFont(ofSize: 13, weight: .semibold)]
         categorySegmentOutlet.setTitleTextAttributes(titleTextAttributes, for: .normal)
     }
-    
 }

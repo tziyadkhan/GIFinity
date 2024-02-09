@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestoreInternal
 
 class RegistrationPageController: UIViewController {
     
@@ -18,17 +19,13 @@ class RegistrationPageController: UIViewController {
     var adapter: LoginAdapter?
     var tickValidation = false
     let urlHelper = URLs()
+    let database = Firestore.firestore()
     var onLogin: ((String, String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        adapter = LoginAdapter(controller: self)
-        adapter?.userCompletion = { user in
-            self.regFullnameTextField.text = user.fullname ?? ""
-            self.regEmailTextField.text = user.email ?? ""
-//            print(user)
-        }
+        googleSignIn()
     }
     
     @IBAction func signupButton(_ sender: Any) {
@@ -100,13 +97,22 @@ extension RegistrationPageController {
             Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
                 if let error {
                     self?.showAlert(title: "Error", message: error.localizedDescription)
-                } else if let user = result?.user {
-                    var user = UserProfile(fullname: fullname, email: email, password: "")
+                } else if let _ = result?.user {
+                    let user = UserProfile(fullname: fullname, email: email, password: "")
                     self?.onLogin?(user.email ?? "", password)
+                    let data = ["email": "\(email)", "fullname" : "\(fullname)", "uid": "\(result?.user.uid ?? "bosh")"]
+                    self?.database.collection("UserInfo").addDocument(data: data)
                     self?.navigationController?.popViewController(animated: true)
-//                    print(user)
                 }
             }
+        }
+    }
+// Google vasitesi ile sign in edende, user-in adini ve emailini avtomatik textfield-de doldurur
+    func googleSignIn() {
+        adapter = LoginAdapter(controller: self)
+        adapter?.userCompletion = { user in
+            self.regFullnameTextField.text = user.fullname ?? ""
+            self.regEmailTextField.text = user.email ?? ""
         }
     }
 }
