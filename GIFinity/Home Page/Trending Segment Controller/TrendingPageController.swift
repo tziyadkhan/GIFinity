@@ -52,8 +52,11 @@ extension TrendingPageController: UICollectionViewDelegate,
         let selectedItem = viewmodel.trendingGifItems[indexPath.item]
         let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
                                            avatar: selectedItem.user?.avatarURL ?? "",
-                                           username: selectedItem.username ?? "")
+                                           username: selectedItem.username ?? "",
+                                           imageWidth: selectedItem.images?.original?.width,
+                                           imageHeight: selectedItem.images?.original?.height)
         controller.selectedItem = selectedGIF
+//        print("trendingin ici \(selectedGIF)")
         navigationController?.show(controller, sender: nil)
     }
     
@@ -76,7 +79,7 @@ extension TrendingPageController: UICollectionViewDelegate,
 extension TrendingPageController {
     func configureViewModel() {
         viewmodel.error = { error in
-            print(error!)
+//            print(error!)
         }
         viewmodel.success = {
             self.trendingCollection.reloadData()

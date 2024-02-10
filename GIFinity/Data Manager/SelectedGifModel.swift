@@ -11,4 +11,6 @@ struct SelectedGifModel {
     var selectedImage: String
     var avatar: String
     var username: String
+    var imageWidth: String?
+    var imageHeight: String?
 }

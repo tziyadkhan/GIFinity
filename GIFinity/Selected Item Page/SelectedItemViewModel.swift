@@ -18,8 +18,7 @@ class SelectedItemViewModel {
             if let errorMessage {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {
-                self.trendingGifItems.append(contentsOf: data.result ?? [])
-//                print(data)
+                self.trendingGifItems.append(contentsOf: data.data)
                 self.success?()
             }
         }

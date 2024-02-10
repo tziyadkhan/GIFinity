@@ -18,17 +18,17 @@ class SearchPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureCollection()
         configUI()
-//        configureViewmodel()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func searchTextField(_ sender: UITextField) {
         if let text = sender.text {
             print(text)
-            viewmodel.getSearchItem(searchText: text)
-            searchCollection.reloadData()
+            viewmodel.getSearchItem(searchText: text) {
+                self.searchCollection.reloadData()
+            }
         } else {
             viewmodel.clearItems()
             searchCollection.reloadData()
@@ -38,12 +38,12 @@ class SearchPageController: UIViewController {
     
 }
 //MARK: Collection Functions
-extension SearchPageController: UICollectionViewDelegate,
-                                    UICollectionViewDataSource,
-                                CHTCollectionViewDelegateWaterfallLayout {
+extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSource,
+        CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewmodel.searchedGifItem.count
+//        print(viewmodel.searchedGifItem.count)
+        return viewmodel.searchedGifItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,9 +57,11 @@ extension SearchPageController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.searchedGifItem[indexPath.item]
-        let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
-                                           avatar: selectedItem.user?.avatarURL ?? "",
-                                           username: selectedItem.username ?? "")
+        let selectedGIF = SelectedGifModel(
+            selectedImage: selectedItem.images?.original?.url ?? "",
+            avatar: selectedItem.user?.avatarURL ?? "",
+            username: selectedItem.username ?? ""
+        )
         controller.selectedItem = selectedGIF
         navigationController?.show(controller, sender: nil)
     }
@@ -88,10 +90,4 @@ extension SearchPageController {
         let icon = UIImage.gifImageWithName("icon")
         iconGif.image = icon
     }
-    
-//    func configureViewmodel() {
-//        viewmodel.error = { error in
-//            print(error)
-//        }
-//    }    
 }

@@ -21,8 +21,7 @@ class TrendingPageViewModel {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {
                 self.trendingGifData = data
-                self.trendingGifItems.append(contentsOf: data.result ?? [])
-//                print(data)
+                self.trendingGifItems.append(contentsOf: data.data)
                 self.success?()
             }
         }

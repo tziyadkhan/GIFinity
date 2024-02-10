@@ -16,6 +16,7 @@ class ProfilePageController: UIViewController {
     let userUid = CurrentUserDetect.currentUser()
     let database = Firestore.firestore()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()

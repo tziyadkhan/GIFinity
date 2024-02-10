@@ -30,6 +30,7 @@ class SelectedItemPageController: UIViewController {
         configureCollection()
         fillItems()
         configureViewModel()
+        print("testtttttt \(selectedItem!)")
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
@@ -45,7 +46,7 @@ class SelectedItemPageController: UIViewController {
     
 }
 
-//MARK: Collection Functions
+//MARK: Other GIFs Collection Functions
 extension SelectedItemPageController: UICollectionViewDelegate,UICollectionViewDataSource,CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,7 +97,7 @@ extension SelectedItemPageController {
     }
     
     func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(okayButton)
         present(alertController, animated: true)
@@ -141,13 +142,17 @@ extension SelectedItemPageController {
         }
         viewmodel.success = {
             self.relatedGIFCollection.reloadData()
-            print(self.viewmodel.trendingGifItems)
+//            print(self.viewmodel.trendingGifItems)
         }
         viewmodel.getItems()
     }
     
     func addItems() {
-        let data = ["url" : "\(selectedItem?.selectedImage ?? "bosh url")", "uid" : "\(userUID)"]
+        let data = ["url" : "\(selectedItem?.selectedImage ?? "bosh url")",
+                    "uid" : "\(userUID)",
+                    "imageWidth" : "\(selectedItem?.imageWidth ?? "100")",
+                    "imageHeight" : "\(selectedItem?.imageHeight ?? "100")"]
+        print(data)
         database.collection("Favourites").addDocument(data: data)
         showAlert(title: "Success", message: "Successfully added")
     }

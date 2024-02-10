@@ -20,7 +20,7 @@ class StickerPageViewModel {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {
                 self.stickerData = data
-                self.stickerItems.append(contentsOf: data.result ?? [])
+                self.stickerItems.append(contentsOf: data.data)
                 self.success?()
             }
         }

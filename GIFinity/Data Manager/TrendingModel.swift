@@ -7,12 +7,12 @@ import Foundation
 
 // MARK: - TrendingGifModel
 struct TrendingModel: Codable {
-    let result: [TrendingResult]?
+    let data: [TrendingResult]
     let pagination: Pagination?
     let meta: Meta?
     
     enum CodingKeys: String, CodingKey {
-        case result = "data"
+        case data
         case pagination
         case meta
     }
