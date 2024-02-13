@@ -95,13 +95,6 @@ extension SelectedItemPageController {
         profileNameLabel.text = selectedItem?.username
     }
     
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okayButton = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(okayButton)
-        present(alertController, animated: true)
-    }
-    
     func saveGifToPhotosHelper(gifData: Data) {
         PHPhotoLibrary.shared().performChanges {
             let creationRequest = PHAssetCreationRequest.forAsset()
@@ -119,9 +112,9 @@ extension SelectedItemPageController {
         //        DispatchQueue.main.async {
         if let gifData = try? Data(contentsOf: URL(string: self.selectedItem?.selectedImage ?? "")!) {
             self.saveGifToPhotosHelper(gifData: gifData)
-            self.showAlert(title: "Saved", message: "Your GIF has been saved to your photos")
+            AlertView.showAlert(view: self, title: "Saved", message: "Your GIF has been saved to your photos")
         } else {
-            self.showAlert(title: "Error", message: "Failed to save GIF")
+            AlertView.showAlert(view: self, title: "Error", message: "Failed to save GIF")
         }
         //        }
     }
@@ -152,7 +145,7 @@ extension SelectedItemPageController {
                     "imageHeight" : "\(selectedItem?.imageHeight ?? "100")"]
         print(data)
         database.collection("Favourites").addDocument(data: data)
-        showAlert(title: "Success", message: "Successfully added")
+        AlertView.showAlert(view: self, title: "Success", message: "Successfully aded")
     }
 }
 

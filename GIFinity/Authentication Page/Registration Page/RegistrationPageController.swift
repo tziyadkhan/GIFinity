@@ -32,7 +32,7 @@ class RegistrationPageController: UIViewController {
         if tickValidation {
             signUP()
         } else {
-            showAlert(title: "Error", message: "Please agree with Terms & Conditions")
+            AlertView.showAlert(view: self, title: "Error", message: "Please agree with Terms & Conditions")
         }
         
     }
@@ -81,22 +81,13 @@ extension RegistrationPageController {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
-        let okayButton = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okayButton)
-        self.present(alertController, animated: true)
-    }
-    
     func signUP() {
         if let fullname = regFullnameTextField.text,
            let email = regEmailTextField.text,
            let password = regPasswordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
                 if let error {
-                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                    AlertView.showAlert(view: self ?? RegistrationPageController(), title: "Error", message: error.localizedDescription)
                 } else if let _ = result?.user {
                     let user = UserProfile(fullname: fullname, email: email, password: "")
                     self?.onLogin?(user.email ?? "", password)

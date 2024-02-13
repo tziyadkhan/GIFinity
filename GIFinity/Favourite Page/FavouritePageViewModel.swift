@@ -56,7 +56,7 @@ class FavouritePageViewModel {
                     print("Unable to delete item")
                     return
                 }
-                 self.deleteItemFromDatabase(item: itemToDelete)
+                self.deleteItemFromDatabase(item: itemToDelete)
             }
             return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [delete])
         }
@@ -81,7 +81,7 @@ class FavouritePageViewModel {
                     let docRef = document.reference
                     docRef.delete { error in
                         if let error {
-                            print("Got an error during deleting item")
+                            print("Got an error during deleting item \(error.localizedDescription)")
                         } else {
                             print("deleted successfully")
                             self?.favouriteItems?.removeAll(where: { $0.url == item.url })

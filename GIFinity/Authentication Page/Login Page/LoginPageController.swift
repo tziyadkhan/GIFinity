@@ -57,15 +57,6 @@ extension LoginPageController {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
-        let okayButton = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okayButton)
-        self.present(alertController, animated: true)
-    }
-    
     func setRoot() {
         if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = scene.delegate as? SceneDelegate {
@@ -79,7 +70,7 @@ extension LoginPageController {
            let password = loginPasswordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { result, error in
                 if let error {
-                    self.showAlert(title: "Error", message: error.localizedDescription)
+                    AlertView.showAlert(view: self, title: "Error", message: error.localizedDescription)
                 } else if let _ = result?.user {
                     self.userEmail = result?.user.email ?? "bosh email"
                     self.setRoot()
