@@ -7,7 +7,6 @@
 
 import UIKit
 import CHTCollectionViewWaterfallLayout
-import FirebaseFirestoreInternal
 
 class FavouritePageController: UIViewController {
     
@@ -21,6 +20,7 @@ class FavouritePageController: UIViewController {
         
         configCollection()
         configViewmodel()
+        configUI()
     }
 }
 
@@ -63,6 +63,12 @@ extension FavouritePageController {
             self.favoriteCollection.reloadData()
         }
         viewmodel.getUserFavourites()
+    }
+    
+    func configUI() {
+        title = "Favourites"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 }
 

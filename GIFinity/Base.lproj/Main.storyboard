@@ -597,14 +597,14 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6I-WI-UPs">
-                                <rect key="frame" x="0.0" y="161" width="393" height="691"/>
+                                <rect key="frame" x="0.0" y="161" width="393" height="608"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="hP8-hm-9cI" kind="embed" id="n0b-5e-cZC"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w7-ur-rff">
-                                <rect key="frame" x="0.0" y="161" width="393" height="691"/>
+                                <rect key="frame" x="0.0" y="161" width="393" height="608"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="CLt-99-hHP" kind="embed" id="hZ2-O9-uK5"/>
@@ -614,7 +614,7 @@
                         <viewLayoutGuide key="safeArea" id="XBo-tx-ulf"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="2w7-ur-rff" secondAttribute="bottom" constant="-83" id="4a6-jw-BiI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2w7-ur-rff" secondAttribute="bottom" id="4a6-jw-BiI"/>
                             <constraint firstItem="2w7-ur-rff" firstAttribute="trailing" secondItem="XBo-tx-ulf" secondAttribute="trailing" id="8tC-Tt-Gi6"/>
                             <constraint firstItem="2a5-aw-fvT" firstAttribute="leading" secondItem="XBo-tx-ulf" secondAttribute="leading" constant="4" id="Eqo-A4-90c"/>
                             <constraint firstItem="2w7-ur-rff" firstAttribute="top" secondItem="2a5-aw-fvT" secondAttribute="bottom" constant="8" id="FJ3-z8-dJU"/>
@@ -737,6 +737,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileBackgroundGIF.gif" translatesAutoresizingMaskIntoConstraints="NO" id="8wL-lP-r9q">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="lbA-h8-d87"/>
                                     <constraint firstAttribute="width" constant="393" id="t7H-Vh-Gj3"/>
@@ -744,6 +745,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileGIF.gif" translatesAutoresizingMaskIntoConstraints="NO" id="1O5-HN-4bz">
                                 <rect key="frame" x="147" y="88" width="100" height="100"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4iv-vK-2pk"/>
                                     <constraint firstAttribute="width" constant="100" id="jIZ-t6-TTc"/>
@@ -961,11 +963,11 @@
             <objects>
                 <viewController storyboardIdentifier="StickerPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hP8-hm-9cI" customClass="StickerPageController" customModule="GIFinity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwM-U0-TlH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="691"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="608"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mPQ-oh-QPv">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="657"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="608"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s7W-Nv-nJG">
                                     <size key="itemSize" width="128" height="128"/>
@@ -984,7 +986,7 @@
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="mPQ-oh-QPv" firstAttribute="top" secondItem="wwM-U0-TlH" secondAttribute="top" id="8U3-3t-LQW"/>
-                            <constraint firstAttribute="bottom" secondItem="mPQ-oh-QPv" secondAttribute="bottom" constant="34" id="CYL-8a-vTd"/>
+                            <constraint firstAttribute="bottom" secondItem="mPQ-oh-QPv" secondAttribute="bottom" id="CYL-8a-vTd"/>
                             <constraint firstItem="mPQ-oh-QPv" firstAttribute="leading" secondItem="wwM-U0-TlH" secondAttribute="leading" id="PpK-QK-gAh"/>
                             <constraint firstAttribute="trailing" secondItem="mPQ-oh-QPv" secondAttribute="trailing" id="cmb-hq-XNP"/>
                         </constraints>
@@ -1005,11 +1007,11 @@
             <objects>
                 <viewController storyboardIdentifier="TrendingPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CLt-99-hHP" customClass="TrendingPageController" customModule="GIFinity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dl0-vP-mgQ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="691"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="608"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Iy-yT-f91">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="657"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="608"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5JQ-vf-Cul">
                                     <size key="itemSize" width="128" height="128"/>
@@ -1027,7 +1029,7 @@
                         <viewLayoutGuide key="safeArea" id="WfC-wd-vPR"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="2Iy-yT-f91" secondAttribute="bottom" constant="34" id="9hP-mu-XRT"/>
+                            <constraint firstAttribute="bottom" secondItem="2Iy-yT-f91" secondAttribute="bottom" id="9hP-mu-XRT"/>
                             <constraint firstItem="2Iy-yT-f91" firstAttribute="leading" secondItem="Dl0-vP-mgQ" secondAttribute="leading" id="LIv-4k-R03"/>
                             <constraint firstItem="2Iy-yT-f91" firstAttribute="top" secondItem="Dl0-vP-mgQ" secondAttribute="top" id="t5v-wF-1Cp"/>
                             <constraint firstAttribute="trailing" secondItem="2Iy-yT-f91" secondAttribute="trailing" id="wUg-go-c9z"/>

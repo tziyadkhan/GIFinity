@@ -13,16 +13,12 @@ class HomePageController: UIViewController {
     @IBOutlet weak var categorySegmentOutlet: UISegmentedControl!
     @IBOutlet weak var stickerSegment: UIView!
     @IBOutlet weak var trendingSegment: UIView!
-    
-    var userTest: UserProfile?
-    var adapter: LoginAdapter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configSegment()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        title = "Home"
     }
     
     @IBAction func searchButton(_ sender: Any) {
@@ -30,8 +26,8 @@ class HomePageController: UIViewController {
         navigationController?.show(controller, sender: nil)
     }
     
-    
     @IBAction func categorySelection(_ sender: UISegmentedControl) {
+        
         switch sender.selectedSegmentIndex {
         case 0:
             self.view.bringSubviewToFront(trendingSegment)
@@ -47,7 +43,6 @@ class HomePageController: UIViewController {
             break
         }
     }
-    
 }
 
 //MARK: Functions

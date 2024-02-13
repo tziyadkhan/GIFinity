@@ -22,13 +22,11 @@ class LoginPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configUI()
         adapter = LoginAdapter(controller: self)
-
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        print(userEmail ?? "bosh email")
-    }
+    
     @IBAction func loginButton(_ sender: Any) {
         loginCheck()
     }
@@ -36,7 +34,6 @@ class LoginPageController: UIViewController {
     @IBAction func signupButton(_ sender: Any) {
         signUP()
     }
-    
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
         
@@ -48,7 +45,6 @@ class LoginPageController: UIViewController {
     
     @IBAction func privacyPolicy(_ sender: Any) {
         urlHelper.callURL(urlType: .privacyTerms)
-        
     }
 }
 
@@ -102,5 +98,4 @@ extension LoginPageController {
         }
         navigationController?.show(controller, sender: nil)
     }
-    
 }

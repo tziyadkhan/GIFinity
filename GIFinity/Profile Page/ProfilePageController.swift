@@ -24,6 +24,7 @@ class ProfilePageController: UIViewController {
         configUI()
         configCollection()
         configViewModel()
+        
     }
     
     @IBAction func exit(_ sender: Any) {

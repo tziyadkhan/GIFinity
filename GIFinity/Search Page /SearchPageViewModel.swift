@@ -12,7 +12,6 @@ class SearchPageViewModel {
     var searchedGifItem = [TrendingResult]()
     var success: (() -> Void)?
     var error: ((String) -> Void)?
-    
     private let manager = SearchManager()
     
     func getSearchItem(

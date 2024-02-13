@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		90237EFC2B7769F50023CFC7 /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90237EFB2B7769F50023CFC7 /* FavouriteModel.swift */; };
+		9038224C2B7B528300BB7B93 /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038224B2B7B528300BB7B93 /* URLType.swift */; };
 		9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060069C2B4D371100D04863 /* OnBoardController .swift */; };
 		9060069F2B4D376400D04863 /* centralGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9060069E2B4D376400D04863 /* centralGif.gif */; };
 		90616E092B493FFF0023A2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90616E082B493FFF0023A2E7 /* AppDelegate.swift */; };
@@ -96,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		90237EFB2B7769F50023CFC7 /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
+		9038224B2B7B528300BB7B93 /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
 		9060069C2B4D371100D04863 /* OnBoardController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnBoardController .swift"; sourceTree = "<group>"; };
 		9060069E2B4D376400D04863 /* centralGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = centralGif.gif; sourceTree = "<group>"; };
 		90616E052B493FFF0023A2E7 /* GIFinity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIFinity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,6 +334,7 @@
 				908D6D0A2B6A64EB009F71E9 /* UserProfile.swift */,
 				9098C1642B6F8D42006EEC26 /* SelectedGifModel.swift */,
 				90237EFB2B7769F50023CFC7 /* FavouriteModel.swift */,
+				9038224B2B7B528300BB7B93 /* URLType.swift */,
 			);
 			path = "Data Manager";
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				909475802B56D3C200FFF157 /* ImageCollecttionCell.swift in Sources */,
 				90C8BA692B5A7D080099A967 /* StickerPageController.swift in Sources */,
 				906407FB2B5134E9007C3ECB /* TrendingManager.swift in Sources */,
+				9038224C2B7B528300BB7B93 /* URLType.swift in Sources */,
 				906407F42B5131FC007C3ECB /* NetworkHelper.swift in Sources */,
 				906407DD2B51278C007C3ECB /* HomePageController.swift in Sources */,
 				90B6EAE12B70E07F009281E5 /* SearchPageViewModel.swift in Sources */,

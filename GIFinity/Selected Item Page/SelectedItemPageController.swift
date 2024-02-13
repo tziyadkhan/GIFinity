@@ -23,14 +23,13 @@ class SelectedItemPageController: UIViewController {
     let viewmodel = SelectedItemViewModel()
     let database = Firestore.firestore()
     let userUID = CurrentUserDetect.currentUser()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureCollection()
         fillItems()
         configureViewModel()
-        print("testtttttt \(selectedItem!)")
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
@@ -142,7 +141,6 @@ extension SelectedItemPageController {
         }
         viewmodel.success = {
             self.relatedGIFCollection.reloadData()
-//            print(self.viewmodel.trendingGifItems)
         }
         viewmodel.getItems()
     }

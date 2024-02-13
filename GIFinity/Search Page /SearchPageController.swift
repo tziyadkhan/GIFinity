@@ -35,14 +35,12 @@ class SearchPageController: UIViewController {
         }
     }
     
-    
 }
 //MARK: Collection Functions
 extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSource,
         CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print(viewmodel.searchedGifItem.count)
         return viewmodel.searchedGifItem.count
     }
     

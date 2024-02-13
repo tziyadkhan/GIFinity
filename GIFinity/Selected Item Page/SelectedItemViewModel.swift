@@ -7,9 +7,9 @@
 
 import Foundation
 class SelectedItemViewModel {
+    
     var trendingGifItems = [TrendingResult]()
     private let manager = SelectedItemManager()
-    
     var success: (() -> Void)?
     var error: ((String?) -> Void)?
     
@@ -23,5 +23,4 @@ class SelectedItemViewModel {
             }
         }
     }
-    
 }

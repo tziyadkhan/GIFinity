@@ -14,6 +14,7 @@ class OnBoardController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
        configUI()
     }
     
@@ -21,12 +22,12 @@ class OnBoardController: UIViewController {
         let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
         navigationController?.show(controller, sender: nil)
         setRoot()
-//        print(UserDefaults.standard.bool(forKey: "getStarted"))
     }
 }
 
 //MARK: Functions
 extension OnBoardController {
+    
     func configUI() {
         let backgroundGif = UIImage.gifImageWithName("background")
         backgroundGIF.image = backgroundGif

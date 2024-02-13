@@ -14,5 +14,4 @@ class CurrentUserDetect {
         let userUID = currentUser.uid
         return userUID
     }
-
 }

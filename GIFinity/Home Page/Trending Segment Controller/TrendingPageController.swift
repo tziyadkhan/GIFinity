@@ -56,7 +56,6 @@ extension TrendingPageController: UICollectionViewDelegate,
                                            imageWidth: selectedItem.images?.original?.width,
                                            imageHeight: selectedItem.images?.original?.height)
         controller.selectedItem = selectedGIF
-//        print("trendingin ici \(selectedGIF)")
         navigationController?.show(controller, sender: nil)
     }
     
@@ -77,6 +76,7 @@ extension TrendingPageController: UICollectionViewDelegate,
 
 //MARK: Functions
 extension TrendingPageController {
+    
     func configureViewModel() {
         viewmodel.error = { error in
 //            print(error!)
@@ -84,10 +84,10 @@ extension TrendingPageController {
         viewmodel.success = {
             self.trendingCollection.reloadData()
             self.refreshControl.endRefreshing()
-            
         }
         viewmodel.getItems()
     }
+    
     func configureCollectionView() {
         layout.columnCount = 2
         layout.itemRenderDirection = .leftToRight

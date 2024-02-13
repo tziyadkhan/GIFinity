@@ -8,12 +8,6 @@
 import Foundation
 import UIKit
 
-enum URLType {
-    case termsOfService
-    case privacyTerms
-    case googlePrivacyTerms
-}
-
 class URLs {
     
     func callURL(urlType: URLType) {
