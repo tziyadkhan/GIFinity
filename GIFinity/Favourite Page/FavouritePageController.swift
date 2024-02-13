@@ -14,26 +14,13 @@ class FavouritePageController: UIViewController {
     @IBOutlet weak var favoriteCollection: UICollectionView!
     
     let layout = CHTCollectionViewWaterfallLayout()
-    let userUID = CurrentUserDetect.currentUser()
-    let database = Firestore.firestore()
-    var favouriteItems: [FavouriteModel]? = []
-    
-    
+    let viewmodel = FavouritePageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configCollection()
-        getUserFavourites()
-        print(userUID)
-        //        print(favouriteItems ?? [FavouriteModel]())
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //        favoriteCollection.reloadData()
-        print("testishkoooo \(favouriteItems!)")
-        
+        configViewmodel()
     }
 }
 
@@ -41,19 +28,19 @@ class FavouritePageController: UIViewController {
 extension FavouritePageController: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        favouriteItems?.count ?? 10
+        viewmodel.favouriteItems?.count ?? 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
-        cell.gifImage.showImage(imageURL: favouriteItems?[indexPath.item].url)
+        cell.gifImage.showImage(imageURL: viewmodel.favouriteItems?[indexPath.item].url)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let width = Int(favouriteItems?[indexPath.item].size?.width ?? ""),
-              let height = Int(favouriteItems?[indexPath.item].size?.height ?? "") else {
+        guard let width = Int(viewmodel.favouriteItems?[indexPath.item].size?.width ?? ""),
+              let height = Int(viewmodel.favouriteItems?[indexPath.item].size?.height ?? "") else {
             return CGSize(width: 100, height: 100)
         }
         return CGSize(width: width, height: height)
@@ -70,33 +57,12 @@ extension FavouritePageController {
         favoriteCollection.register(ImageCollecttionCell.self, forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
     }
     
-    
-    func getUserFavourites() {
-        let favouritesCollection = database.collection("Favourites")
-        favouritesCollection.whereField("uid", isEqualTo: userUID).addSnapshotListener { [weak self] snapshot, error in
-            if let error = error {
-                print("Error fetching favourites: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let documents = snapshot?.documents else {
-                print("No favourites found.")
-                return
-            }
-            
-            var favourites = [FavouriteModel]()
-            for document in documents {
-                let dict = document.data()
-                
-                if let jsonData = try? JSONSerialization.data(withJSONObject: dict),
-                   let item = try? JSONDecoder().decode(FavouriteModel.self, from: jsonData) {
-                    favourites.append(item)
-                }
-            }
-            self?.favouriteItems = favourites
-            print("Favourites updated: \(favourites)")
-            self?.favoriteCollection.reloadData()
+    func configViewmodel() {
+        
+        viewmodel.success = {
+            self.favoriteCollection.reloadData()
         }
+        viewmodel.getUserFavourites()
     }
 }
 
