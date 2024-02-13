@@ -21,6 +21,7 @@ class FavouritePageController: UIViewController {
         configCollection()
         configViewmodel()
         configUI()
+//        setupLPGR()
     }
 }
 
@@ -38,6 +39,10 @@ extension FavouritePageController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        viewmodel.configureContextMenu(index: indexPath.row)
+        }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let width = Int(viewmodel.favouriteItems?[indexPath.item].size?.width ?? ""),
               let height = Int(viewmodel.favouriteItems?[indexPath.item].size?.height ?? "") else {
@@ -50,6 +55,13 @@ extension FavouritePageController: UICollectionViewDelegate, UICollectionViewDat
 
 //MARK: Functions
 extension FavouritePageController {
+    
+    func configUI() {
+        title = "Favourites"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
     func configCollection() {
         layout.columnCount = 2
         layout.itemRenderDirection = .leftToRight
@@ -58,17 +70,11 @@ extension FavouritePageController {
     }
     
     func configViewmodel() {
-        
         viewmodel.success = {
             self.favoriteCollection.reloadData()
         }
         viewmodel.getUserFavourites()
     }
-    
-    func configUI() {
-        title = "Favourites"
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-    }
 }
+
 

@@ -910,9 +910,7 @@
                             <constraint firstAttribute="bottom" secondItem="vUm-45-8Lz" secondAttribute="bottom" id="yOf-Pj-1El"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favourite" id="RVG-yG-8M5">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Oen-dV-ZrR"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Favourite" id="RVG-yG-8M5"/>
                     <connections>
                         <outlet property="favoriteCollection" destination="vUm-45-8Lz" id="iUz-Am-xzJ"/>
                     </connections>
