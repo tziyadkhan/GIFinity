@@ -10,6 +10,9 @@
 		90237EFC2B7769F50023CFC7 /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90237EFB2B7769F50023CFC7 /* FavouriteModel.swift */; };
 		9038224C2B7B528300BB7B93 /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038224B2B7B528300BB7B93 /* URLType.swift */; };
 		9038224E2B7B7FFE00BB7B93 /* ReusableAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038224D2B7B7FFE00BB7B93 /* ReusableAlert.swift */; };
+		903822512B7CA4E300BB7B93 /* SettingsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903822502B7CA4E300BB7B93 /* SettingsPageController.swift */; };
+		903822532B7CA7DA00BB7B93 /* settings.gif in Resources */ = {isa = PBXBuildFile; fileRef = 903822522B7CA7DA00BB7B93 /* settings.gif */; };
+		903822552B7CB37700BB7B93 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903822542B7CB37700BB7B93 /* SettingsPageViewModel.swift */; };
 		9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060069C2B4D371100D04863 /* OnBoardController .swift */; };
 		9060069F2B4D376400D04863 /* centralGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9060069E2B4D376400D04863 /* centralGif.gif */; };
 		90616E092B493FFF0023A2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90616E082B493FFF0023A2E7 /* AppDelegate.swift */; };
@@ -100,6 +103,9 @@
 		90237EFB2B7769F50023CFC7 /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
 		9038224B2B7B528300BB7B93 /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
 		9038224D2B7B7FFE00BB7B93 /* ReusableAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableAlert.swift; sourceTree = "<group>"; };
+		903822502B7CA4E300BB7B93 /* SettingsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageController.swift; sourceTree = "<group>"; };
+		903822522B7CA7DA00BB7B93 /* settings.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = settings.gif; sourceTree = "<group>"; };
+		903822542B7CB37700BB7B93 /* SettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewModel.swift; sourceTree = "<group>"; };
 		9060069C2B4D371100D04863 /* OnBoardController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnBoardController .swift"; sourceTree = "<group>"; };
 		9060069E2B4D376400D04863 /* centralGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = centralGif.gif; sourceTree = "<group>"; };
 		90616E052B493FFF0023A2E7 /* GIFinity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIFinity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +205,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9038224F2B7CA4CB00BB7B93 /* Settings Page */ = {
+			isa = PBXGroup;
+			children = (
+				903822502B7CA4E300BB7B93 /* SettingsPageController.swift */,
+				903822542B7CB37700BB7B93 /* SettingsPageViewModel.swift */,
+			);
+			path = "Settings Page";
+			sourceTree = "<group>";
+		};
 		906006A02B4D390100D04863 /* Authentication Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +249,7 @@
 				909475882B56DF9600FFF157 /* Search Page  */,
 				906407E02B51279F007C3ECB /* Favourite Page */,
 				906407E52B512805007C3ECB /* Profile Page */,
+				9038224F2B7CA4CB00BB7B93 /* Settings Page */,
 				90616E082B493FFF0023A2E7 /* AppDelegate.swift */,
 				90616E0A2B493FFF0023A2E7 /* SceneDelegate.swift */,
 				90616E0E2B493FFF0023A2E7 /* Main.storyboard */,
@@ -265,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				90DE56452B76181300C74B1A /* profileGIF.gif */,
+				903822522B7CA7DA00BB7B93 /* settings.gif */,
 				909475722B56C8B800FFF157 /* icon.gif */,
 				9060069E2B4D376400D04863 /* centralGif.gif */,
 				90DE56432B76167F00C74B1A /* profileBackgroundGIF.gif */,
@@ -536,6 +553,7 @@
 				90616E212B494EF90023A2E7 /* background.gif in Resources */,
 				9060069F2B4D376400D04863 /* centralGif.gif in Resources */,
 				90616E102B493FFF0023A2E7 /* Main.storyboard in Resources */,
+				903822532B7CA7DA00BB7B93 /* settings.gif in Resources */,
 				908D6D662B6CCA6B009F71E9 /* GoogleService-Info.plist in Resources */,
 				90DE56462B76181300C74B1A /* profileGIF.gif in Resources */,
 			);
@@ -551,6 +569,7 @@
 				908D6D1B2B6B9D6B009F71E9 /* LoginPageController.swift in Sources */,
 				90C8BA6F2B5A7D340099A967 /* StickerListUseCase.swift in Sources */,
 				906407E72B51281C007C3ECB /* ProfilePageController.swift in Sources */,
+				903822512B7CA4E300BB7B93 /* SettingsPageController.swift in Sources */,
 				908D6D692B6CD604009F71E9 /* LoginAdapter.swift in Sources */,
 				9060069D2B4D371100D04863 /* OnBoardController .swift in Sources */,
 				90C8BA6B2B5A7D170099A967 /* StickerEndpoint.swift in Sources */,
@@ -591,6 +610,7 @@
 				906407F22B513137007C3ECB /* NetworkManager.swift in Sources */,
 				908D6D832B6E36AA009F71E9 /* SelectedItemPageController.swift in Sources */,
 				90C8BA672B5A62AB0099A967 /* TrendingEndpoint.swift in Sources */,
+				903822552B7CB37700BB7B93 /* SettingsPageViewModel.swift in Sources */,
 				90616E242B4951670023A2E7 /* GifLoader.swift in Sources */,
 				906407E22B5127B8007C3ECB /* FavouritePageViewModel.swift in Sources */,
 			);

@@ -11,4 +11,5 @@ enum URLType {
     case termsOfService
     case privacyTerms
     case googlePrivacyTerms
+    case gifinitySuppoty
 }

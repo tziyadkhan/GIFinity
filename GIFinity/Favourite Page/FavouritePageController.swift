@@ -21,7 +21,6 @@ class FavouritePageController: UIViewController {
         configCollection()
         configViewmodel()
         configUI()
-//        setupLPGR()
     }
 }
 

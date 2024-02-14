@@ -19,6 +19,8 @@ class URLs {
             privacyTerms()
         case .googlePrivacyTerms:
             googlePrivacyTerms()
+        case .gifinitySuppoty:
+            gifinitySupport()
         }
     }
     
@@ -36,6 +38,12 @@ class URLs {
     
     func googlePrivacyTerms() {
         if let url = URL(string: "https://policies.google.com/privacy?hl=en-US") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func gifinitySupport() {
+        if let url = URL(string: "https://support.giphy.com/hc/en-us") {
             UIApplication.shared.open(url)
         }
     }
