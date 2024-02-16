@@ -94,7 +94,7 @@ extension TrendingPageController {
         trendingCollection.collectionViewLayout = layout
         trendingCollection.register(ImageCollecttionCell.self, forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
         
-        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged) 
         refreshControl.tintColor = .red
         refreshControl.backgroundColor = .trendingCell
         trendingCollection.refreshControl = refreshControl

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
 class URLs {
     
@@ -26,25 +27,29 @@ class URLs {
     
     func termsOfService() {
         if let url = URL(string: "https://support.giphy.com/hc/en-us/articles/360020027752-GIPHY-User-Terms-of-Service#:~:text=Please%20do%20not%20publicly%20post,in%20connection%20with%20its%20Services.") {
-            UIApplication.shared.open(url)
+            let safariViewController = SFSafariViewController(url: url)
+            UIApplication.shared.windows.first?.rootViewController?.present(safariViewController, animated: true, completion: nil)
         }
     }
     
     func privacyTerms() {
         if let url = URL(string: "https://support.giphy.com/hc/en-us/articles/360032872931") {
-            UIApplication.shared.open(url)
+            let safariViewController = SFSafariViewController(url: url)
+            UIApplication.shared.windows.first?.rootViewController?.present(safariViewController, animated: true, completion: nil)
         }
     }
     
     func googlePrivacyTerms() {
         if let url = URL(string: "https://policies.google.com/privacy?hl=en-US") {
-            UIApplication.shared.open(url)
+            let safariViewController = SFSafariViewController(url: url)
+            UIApplication.shared.windows.first?.rootViewController?.present(safariViewController, animated: true, completion: nil)
         }
     }
     
     func gifinitySupport() {
         if let url = URL(string: "https://support.giphy.com/hc/en-us") {
-            UIApplication.shared.open(url)
+            let safariViewController = SFSafariViewController(url: url)
+            UIApplication.shared.windows.first?.rootViewController?.present(safariViewController, animated: true, completion: nil)
         }
     }
 }

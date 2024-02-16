@@ -23,6 +23,8 @@ class SelectedItemPageController: UIViewController {
     let viewmodel = SelectedItemViewModel()
     let database = Firestore.firestore()
     let userUID = CurrentUserDetect.currentUser()
+    let refreshControl = UIRefreshControl()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,12 @@ class SelectedItemPageController: UIViewController {
         configureCollection()
         fillItems()
         configureViewModel()
+    }
+    
+    @objc func pullToRefresh() {
+        viewmodel.reset()
+        relatedGIFCollection.reloadData()
+        viewmodel.getItems()
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
@@ -87,6 +95,11 @@ extension SelectedItemPageController {
         layout.itemRenderDirection = .leftToRight
         relatedGIFCollection.collectionViewLayout = layout
         relatedGIFCollection.register(ImageCollecttionCell.self, forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
+        
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.tintColor = .red
+        refreshControl.backgroundColor = .trendingCell
+        relatedGIFCollection.refreshControl = refreshControl
     }
     
     func fillItems() {
@@ -94,24 +107,12 @@ extension SelectedItemPageController {
         profileImage.showImage(imageURL: selectedItem?.avatar)
         profileNameLabel.text = selectedItem?.username
     }
-    
-    func saveGifToPhotosHelper(gifData: Data) {
-        PHPhotoLibrary.shared().performChanges {
-            let creationRequest = PHAssetCreationRequest.forAsset()
-            creationRequest.addResource(with: .photo, data: gifData, options: nil)
-        } completionHandler: { success, error in
-            if success {
-                print("GIF saved successfully.")
-            } else if let error = error {
-                print("Error saving GIF: \(error.localizedDescription)")
-            }
-        }
-    }
+
     
     func saveGIF() {
         //        DispatchQueue.main.async {
         if let gifData = try? Data(contentsOf: URL(string: self.selectedItem?.selectedImage ?? "")!) {
-            self.saveGifToPhotosHelper(gifData: gifData)
+            self.viewmodel.saveGifToPhotosHelper(gifData: gifData)
             AlertView.showAlert(view: self, title: "Saved", message: "Your GIF has been saved to your photos")
         } else {
             AlertView.showAlert(view: self, title: "Error", message: "Failed to save GIF")
@@ -134,6 +135,8 @@ extension SelectedItemPageController {
         }
         viewmodel.success = {
             self.relatedGIFCollection.reloadData()
+            self.refreshControl.endRefreshing()
+
         }
         viewmodel.getItems()
     }

@@ -14,6 +14,7 @@ class FavouritePageController: UIViewController {
     
     let layout = CHTCollectionViewWaterfallLayout()
     let viewmodel = FavouritePageViewModel()
+    let refreshControl = UIRefreshControl()   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,12 @@ class FavouritePageController: UIViewController {
         configCollection()
         configViewmodel()
         configUI()
+    }
+    
+    @objc func pullToRefresh() {
+        viewmodel.reset()
+        favoriteCollection.reloadData()
+        viewmodel.getUserFavourites()
     }
 }
 
@@ -66,11 +73,17 @@ extension FavouritePageController {
         layout.itemRenderDirection = .leftToRight
         favoriteCollection.collectionViewLayout = layout
         favoriteCollection.register(ImageCollecttionCell.self, forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
+        
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.tintColor = .red
+        refreshControl.backgroundColor = .trendingCell
+        favoriteCollection.refreshControl = refreshControl
     }
     
     func configViewmodel() {
         viewmodel.success = {
             self.favoriteCollection.reloadData()
+            self.refreshControl.endRefreshing()
         }
         viewmodel.getUserFavourites()
     }

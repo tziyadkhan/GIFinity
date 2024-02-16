@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Photos
+
 class SelectedItemViewModel {
     
     var trendingGifItems = [TrendingResult]()
@@ -13,8 +15,9 @@ class SelectedItemViewModel {
     var success: (() -> Void)?
     var error: ((String?) -> Void)?
     
+    //Other GIF's ucun random offset
     func getItems() {
-        manager.getTrendingGifList() { data, errorMessage in
+        manager.getTrendingGifList(offsetNumber: Int.random(in: 0..<1400)) { data, errorMessage in
             if let errorMessage {
                 self.error?(errorMessage.localizedDescription)
             } else if let data {
@@ -24,5 +27,20 @@ class SelectedItemViewModel {
         }
     }
     
+    func reset() {
+        trendingGifItems.removeAll()
+    }
     
+    func saveGifToPhotosHelper(gifData: Data) {
+        PHPhotoLibrary.shared().performChanges {
+            let creationRequest = PHAssetCreationRequest.forAsset()
+            creationRequest.addResource(with: .photo, data: gifData, options: nil)
+        } completionHandler: { success, error in
+            if success {
+                print("GIF saved successfully.")
+            } else if let error = error {
+                print("Error saving GIF: \(error.localizedDescription)")
+            }
+        }
+    }
 }

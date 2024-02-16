@@ -15,7 +15,7 @@ class SearchPageController: UIViewController {
     
     let layout = CHTCollectionViewWaterfallLayout()
     let viewmodel = SearchPageViewModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +28,7 @@ class SearchPageController: UIViewController {
             print(text)
             viewmodel.getSearchItem(searchText: text) {
                 self.searchCollection.reloadData()
+
             }
         } else {
             viewmodel.clearItems()
@@ -36,6 +37,7 @@ class SearchPageController: UIViewController {
     }
     
 }
+
 //MARK: Collection Functions
 extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSource,
         CHTCollectionViewDelegateWaterfallLayout {

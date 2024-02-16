@@ -67,4 +67,8 @@ class ProfilePageViewModel {
             }
         }
     }
+    
+    func reset() {
+        favouriteItems?.removeAll()
+    }
 }

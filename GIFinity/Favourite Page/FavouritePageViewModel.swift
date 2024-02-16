@@ -91,4 +91,8 @@ class FavouritePageViewModel {
                 }
             }
     }
+    
+    func reset() {
+        favouriteItems?.removeAll()
+    }
 }

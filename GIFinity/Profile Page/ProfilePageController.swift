@@ -17,6 +17,8 @@ class ProfilePageController: UIViewController {
 
     let layout = CHTCollectionViewWaterfallLayout()
     let viewmodel = ProfilePageViewModel()
+    let refreshControl = UIRefreshControl()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,12 @@ class ProfilePageController: UIViewController {
         configCollection()
         configViewModel()
         
+    }
+    
+    @objc func pullToRefresh() {
+        viewmodel.reset()
+        favouriteCollection.reloadData()
+        viewmodel.getUserFavourites()
     }
     
     @IBAction func settings(_ sender: Any) {
@@ -73,19 +81,26 @@ extension ProfilePageController {
         layout.itemRenderDirection = .leftToRight
         favouriteCollection.collectionViewLayout = layout
         favouriteCollection.register(ImageCollecttionCell.self, forCellWithReuseIdentifier: ImageCollecttionCell.identifier)
+        
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.tintColor = .red
+        refreshControl.backgroundColor = .trendingCell
+        favouriteCollection.refreshControl = refreshControl
     }
     
     func configViewModel() {
         
         viewmodel.success = {
             self.favouriteCollection.reloadData()
+            self.refreshControl.endRefreshing()
+
         }
         
         viewmodel.successFullname = { name in
             self.fullnameLabelText.text = name
         }
-        
         viewmodel.getUserFavourites()
         viewmodel.getUserInfo()
     }
+    
 }
