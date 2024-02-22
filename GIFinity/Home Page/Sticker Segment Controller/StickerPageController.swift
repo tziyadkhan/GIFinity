@@ -42,7 +42,8 @@ extension StickerPageController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
         if let imageURL = viewmodel.stickerItems[indexPath.item].images?.original?.url {
-            cell.gifImage.showImage(imageURL: imageURL)
+//            cell.gifImage.showImage(imageURL: imageURL)
+            cell.configure(image: imageURL)
         }
         return cell
     }

@@ -50,8 +50,9 @@ extension ProfilePageController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
-        cell.gifImage.showImage(imageURL: viewmodel.favouriteItems?[indexPath.item].url)
-        
+        if let imageURL = viewmodel.favouriteItems?[indexPath.item].url{
+            cell.configure(image: imageURL)
+        }
         return cell
     }
     
@@ -93,12 +94,12 @@ extension ProfilePageController {
         viewmodel.success = {
             self.favouriteCollection.reloadData()
             self.refreshControl.endRefreshing()
-
         }
         
         viewmodel.successFullname = { name in
             self.fullnameLabelText.text = name
         }
+        
         viewmodel.getUserFavourites()
         viewmodel.getUserInfo()
     }

@@ -40,8 +40,9 @@ extension FavouritePageController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
-        cell.gifImage.showImage(imageURL: viewmodel.favouriteItems?[indexPath.item].url)
-        
+        if let imageURL = viewmodel.favouriteItems?[indexPath.item].url{
+            cell.configure(image: imageURL)
+        }
         return cell
     }
     

@@ -56,6 +56,6 @@ class ImageCollecttionCell: UICollectionViewCell {
     }
     
     func configure(image: String) {
-        gifImage.image = UIImage(named: image)
+        gifImage.showImage(imageURL: image)
     }
 }

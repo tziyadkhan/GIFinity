@@ -25,7 +25,7 @@ class SelectedItemPageController: UIViewController {
     let userUID = CurrentUserDetect.currentUser()
     let refreshControl = UIRefreshControl()
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +63,7 @@ extension SelectedItemPageController: UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
         if let imageURL = viewmodel.trendingGifItems[indexPath.item].images?.original?.url {
-            cell.gifImage.showImage(imageURL: imageURL)
+            cell.configure(image: imageURL)
         }
         return cell
     }
