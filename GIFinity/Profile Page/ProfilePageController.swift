@@ -15,9 +15,9 @@ class ProfilePageController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullnameLabelText: UILabel!
 
-    let layout = CHTCollectionViewWaterfallLayout()
-    let viewmodel = ProfilePageViewModel()
-    let refreshControl = UIRefreshControl()
+    private let layout = CHTCollectionViewWaterfallLayout()
+    private let viewmodel = ProfilePageViewModel()
+    private let refreshControl = UIRefreshControl()
 
     
     override func viewDidLoad() {

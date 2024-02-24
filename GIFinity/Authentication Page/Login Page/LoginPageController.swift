@@ -15,10 +15,10 @@ class LoginPageController: UIViewController {
     @IBOutlet weak var loginPasswordTextField: UITextField!
     @IBOutlet weak var loginEmailTextField: UITextField!
     
-    var adapter: LoginAdapter?
-    let database = DatabaseAdapter()
-    let urlHelper = URLs()
-    var userEmail: String?
+    private var adapter: LoginAdapter?
+    private let database = DatabaseAdapter()
+    private let urlHelper = URLs()
+    private var userEmail: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

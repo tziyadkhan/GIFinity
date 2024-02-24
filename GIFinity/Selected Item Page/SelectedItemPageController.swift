@@ -8,7 +8,6 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 import Photos
-import FirebaseFirestoreInternal
 
 
 class SelectedItemPageController: UIViewController {
@@ -19,13 +18,11 @@ class SelectedItemPageController: UIViewController {
     @IBOutlet weak var relatedGIFCollection: UICollectionView!
     
     var selectedItem: SelectedGifModel?
-    let layout = CHTCollectionViewWaterfallLayout()
-    let viewmodel = SelectedItemViewModel()
-    let database = Firestore.firestore()
-    let userUID = CurrentUserDetect.currentUser()
-    let refreshControl = UIRefreshControl()
-
-
+    private let layout = CHTCollectionViewWaterfallLayout()
+    private let viewmodel = SelectedItemViewModel()
+    private let refreshControl = UIRefreshControl()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +38,9 @@ class SelectedItemPageController: UIViewController {
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
-        addItems()
+        viewmodel.addItems(data: selectedItem!)
+        AlertView.showAlert(view: self, title: "Success", message: "Successfully aded")
+        
     }
     
     @IBAction func saveGIF(_ sender: Any) {
@@ -107,7 +106,7 @@ extension SelectedItemPageController {
         profileImage.showImage(imageURL: selectedItem?.avatar)
         profileNameLabel.text = selectedItem?.username
     }
-
+    
     
     func saveGIF() {
         //        DispatchQueue.main.async {
@@ -136,19 +135,8 @@ extension SelectedItemPageController {
         viewmodel.success = {
             self.relatedGIFCollection.reloadData()
             self.refreshControl.endRefreshing()
-
         }
         viewmodel.getItems()
-    }
-    
-    func addItems() {
-        let data = ["url" : "\(selectedItem?.selectedImage ?? "bosh url")",
-                    "uid" : "\(userUID)",
-                    "imageWidth" : "\(selectedItem?.imageWidth ?? "100")",
-                    "imageHeight" : "\(selectedItem?.imageHeight ?? "100")"]
-        print(data)
-        database.collection("Favourites").addDocument(data: data)
-        AlertView.showAlert(view: self, title: "Success", message: "Successfully aded")
     }
 }
 

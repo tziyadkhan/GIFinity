@@ -13,14 +13,15 @@ class SearchPageController: UIViewController {
     @IBOutlet weak var iconGif: UIImageView!
     @IBOutlet weak var searchCollection: UICollectionView!
     
-    let layout = CHTCollectionViewWaterfallLayout()
-    let viewmodel = SearchPageViewModel()
+    private let layout = CHTCollectionViewWaterfallLayout()
+    private let viewmodel = SearchPageViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCollection()
         configUI()
+        touchGesture()
     }
 
     @IBAction func searchTextField(_ sender: UITextField) {
@@ -28,6 +29,8 @@ class SearchPageController: UIViewController {
             print(text)
             viewmodel.getSearchItem(searchText: text) {
                 self.searchCollection.reloadData()
+                self.view.endEditing(true)
+                sender.resignFirstResponder()
 
             }
         } else {
@@ -35,6 +38,10 @@ class SearchPageController: UIViewController {
             searchCollection.reloadData()
         }
     }
+    
+    @objc func dismissKeyboard() {
+            view.endEditing(true)
+        }
     
 }
 
@@ -89,5 +96,11 @@ extension SearchPageController {
     func configUI() {
         let icon = UIImage.gifImageWithName("icon")
         iconGif.image = icon
+    }
+    
+    func touchGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+                tapGesture.cancelsTouchesInView = false // Allows touch event to pass through to the view hierarchy
+                view.addGestureRecognizer(tapGesture)
     }
 }

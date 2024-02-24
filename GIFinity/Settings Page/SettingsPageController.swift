@@ -12,8 +12,8 @@ class SettingsPageController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var background: UIImageView!
     
-    let urlHelper = URLs()
-    let viewmodel = SettingsPageViewModel()
+    private let urlHelper = URLs()
+    private let viewmodel = SettingsPageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

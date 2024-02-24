@@ -12,9 +12,9 @@ class TrendingPageController: UIViewController {
     
     @IBOutlet weak var trendingCollection: UICollectionView!
     
-    let viewmodel = TrendingPageViewModel()
-    let layout = CHTCollectionViewWaterfallLayout()
-    let refreshControl = UIRefreshControl()
+    private let viewmodel = TrendingPageViewModel()
+    private let layout = CHTCollectionViewWaterfallLayout()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()

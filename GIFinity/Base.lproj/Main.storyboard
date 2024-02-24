@@ -92,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976.3358778625955" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2998" y="0.0"/>
         </scene>
         <!--Login Page Controller-->
         <scene sceneID="2iC-zA-tTd">
@@ -301,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63G-Ft-veN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3720" y="-2"/>
+            <point key="canvasLocation" x="4625" y="0.0"/>
         </scene>
         <!--Registration Page Controller-->
         <scene sceneID="zOr-83-cP3">
@@ -571,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbb-cG-igl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5266" y="-2"/>
+            <point key="canvasLocation" x="5425" y="0.0"/>
         </scene>
         <!--Home Page Controller-->
         <scene sceneID="329-q9-tqT">
@@ -667,7 +667,7 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="searchTextField:" destination="Z2g-82-q3y" eventType="editingChanged" id="9xl-Jz-up2"/>
+                                            <action selector="searchTextField:" destination="Z2g-82-q3y" eventType="editingDidEnd" id="at5-66-01E"/>
                                             <outlet property="delegate" destination="Z2g-82-q3y" id="bpA-gC-qY7"/>
                                         </connections>
                                     </textField>
@@ -1078,7 +1078,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3O-1I-YMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049.6183206106871" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2288" y="0.0"/>
         </scene>
         <!--Sticker Page Controller-->
         <scene sceneID="4HK-CI-4UL">
@@ -1304,7 +1304,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNa-Ha-aOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3007" y="-2"/>
+            <point key="canvasLocation" x="3805" y="0.0"/>
         </scene>
     </scenes>
     <resources>

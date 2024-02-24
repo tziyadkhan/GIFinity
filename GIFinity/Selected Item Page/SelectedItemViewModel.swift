@@ -7,8 +7,14 @@
 
 import Foundation
 import Photos
+import FirebaseFirestoreInternal
+
 
 class SelectedItemViewModel {
+    
+    var selectedItem: SelectedGifModel?
+    let database = Firestore.firestore()
+    let userUID = CurrentUserDetect.currentUser()
     
     var trendingGifItems = [TrendingResult]()
     private let manager = SelectedItemManager()
@@ -42,5 +48,13 @@ class SelectedItemViewModel {
                 print("Error saving GIF: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func addItems(data: SelectedGifModel) {
+        let data = ["url" : "\(data.selectedImage)",
+                    "uid" : "\(userUID)",
+                    "imageWidth" : "\(data.imageWidth ?? "100")",
+                    "imageHeight" : "\(data.imageHeight ?? "100")"]
+        database.collection("Favourites").addDocument(data: data)
     }
 }

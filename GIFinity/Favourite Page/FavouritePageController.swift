@@ -12,9 +12,9 @@ class FavouritePageController: UIViewController {
     
     @IBOutlet weak var favoriteCollection: UICollectionView!
     
-    let layout = CHTCollectionViewWaterfallLayout()
-    let viewmodel = FavouritePageViewModel()
-    let refreshControl = UIRefreshControl()   
+    private let layout = CHTCollectionViewWaterfallLayout()
+    private let viewmodel = FavouritePageViewModel()
+    private let refreshControl = UIRefreshControl()   
     
     override func viewDidLoad() {
         super.viewDidLoad()

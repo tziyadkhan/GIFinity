@@ -12,9 +12,9 @@ class StickerPageController: UIViewController {
 
     @IBOutlet weak var stickerCollection: UICollectionView!
     
-    let viewmodel = StickerPageViewModel()
-    let layout = CHTCollectionViewWaterfallLayout()
-    let refreshControl = UIRefreshControl()
+    private let viewmodel = StickerPageViewModel()
+    private let layout = CHTCollectionViewWaterfallLayout()
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,6 @@ extension StickerPageController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell
         if let imageURL = viewmodel.stickerItems[indexPath.item].images?.original?.url {
-//            cell.gifImage.showImage(imageURL: imageURL)
             cell.configure(image: imageURL)
         }
         return cell

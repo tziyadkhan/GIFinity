@@ -16,10 +16,10 @@ class RegistrationPageController: UIViewController {
     @IBOutlet weak var regEmailTextField: UITextField!
     @IBOutlet weak var regPasswordTextField: UITextField!
     
-    var adapter: LoginAdapter?
-    var tickValidation = false
-    let urlHelper = URLs()
-    let database = Firestore.firestore()
+    private var adapter: LoginAdapter?
+    private var tickValidation = false
+    private let urlHelper = URLs()
+    private let database = Firestore.firestore()
     var onLogin: ((String, String) -> ())?
     
     override func viewDidLoad() {
