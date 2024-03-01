@@ -10,17 +10,19 @@ import UIKit
 
 class RegistrationPageCoordinator {
     var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    var onLogin: ((String, String) -> Void)?
+
+    init(navigationController: UINavigationController, onLogin: ((String, String) -> Void)?) {
         self.navigationController = navigationController
+        self.onLogin = onLogin
+
     }
     
     func start() {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(RegistrationPageController.self)") as! RegistrationPageController
-        controller.onLogin = { email, password in
-
-        }
+        controller.onLogin = onLogin
         navigationController.show(controller, sender: nil)
     }
-
+    
+    
 }

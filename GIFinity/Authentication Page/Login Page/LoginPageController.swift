@@ -32,8 +32,8 @@ class LoginPageController: UIViewController {
     }
     
     @IBAction func signupButton(_ sender: Any) {
-        signUP()
-//        showRegistrationPage()
+//        signUP()
+        showRegistrationPage()
     }
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
@@ -82,17 +82,21 @@ extension LoginPageController {
         }
     }
     
-    func signUP() {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "RegistrationPageController") as! RegistrationPageController
-        controller.onLogin = { [weak self] email, password in
+//    func signUP() {
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "RegistrationPageController") as! RegistrationPageController
+//        controller.onLogin = { [weak self] email, password in
+//            self?.loginEmailTextField.text = email
+//            self?.loginPasswordTextField.text = password
+//        }
+//        navigationController?.show(controller, sender: nil)
+//    }
+    
+    func showRegistrationPage() {
+        let coordinator = RegistrationPageCoordinator(navigationController: navigationController ?? UINavigationController(),
+                                                      onLogin: {[weak self] email, password in
             self?.loginEmailTextField.text = email
             self?.loginPasswordTextField.text = password
-        }
-        navigationController?.show(controller, sender: nil)
+        })
+            coordinator.start()
     }
-    
-//    func showRegistrationPage() {
-//            let coordinator = RegistrationPageCoordinator(navigationController: navigationController ?? UINavigationController())
-//            coordinator.start()
-//    }
 }
