@@ -19,8 +19,9 @@ class OnBoardController: UIViewController {
     }
     
     @IBAction func getStartedButton(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
-        navigationController?.show(controller, sender: nil)
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
+//        navigationController?.show(controller, sender: nil)
+        showAuthPage()
         setRoot()
     }
 }
@@ -42,5 +43,10 @@ extension OnBoardController {
             UserDefaults.standard.set(true, forKey: "getStarted")
             sceneDelegate.loginPage(window: scene)
         }
+    }
+    
+    func showAuthPage() {
+        let coordinator = LoginPageCoordinator(navigationController: navigationController ?? UINavigationController())
+        coordinator.start()
     }
 }

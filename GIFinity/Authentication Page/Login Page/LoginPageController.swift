@@ -33,6 +33,7 @@ class LoginPageController: UIViewController {
     
     @IBAction func signupButton(_ sender: Any) {
         signUP()
+//        showRegistrationPage()
     }
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
@@ -89,4 +90,9 @@ extension LoginPageController {
         }
         navigationController?.show(controller, sender: nil)
     }
+    
+//    func showRegistrationPage() {
+//            let coordinator = RegistrationPageCoordinator(navigationController: navigationController ?? UINavigationController())
+//            coordinator.start()
+//    }
 }

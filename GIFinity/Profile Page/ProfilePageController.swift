@@ -36,8 +36,9 @@ class ProfilePageController: UIViewController {
     }
     
     @IBAction func settings(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "SettingsPageController") as! SettingsPageController
-        navigationController?.show(controller, sender: nil)
+        showSettingsPage()
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "SettingsPageController") as! SettingsPageController
+//        navigationController?.show(controller, sender: nil)
     }
 }
 
@@ -104,4 +105,8 @@ extension ProfilePageController {
         viewmodel.getUserInfo()
     }
     
+    func showSettingsPage() {
+        let coordinator = SettingsPageCoordinator(navigationController: navigationController ?? UINavigationController())
+        coordinator.start()
+    }
 }

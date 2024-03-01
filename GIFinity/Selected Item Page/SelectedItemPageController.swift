@@ -68,13 +68,14 @@ extension SelectedItemPageController: UICollectionViewDelegate,UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.trendingGifItems[indexPath.item]
         let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
                                            avatar: selectedItem.user?.avatarURL ?? "",
                                            username: selectedItem.username ?? "")
-        controller.selectedItem = selectedGIF
-        navigationController?.show(controller, sender: nil)
+        showSelectedItem(item: selectedGIF)
+//        controller.selectedItem = selectedGIF
+//        navigationController?.show(controller, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -137,6 +138,11 @@ extension SelectedItemPageController {
             self.refreshControl.endRefreshing()
         }
         viewmodel.getItems()
+    }
+    
+    func showSelectedItem(item: SelectedGifModel) {
+        let coordinator = SelectedItemCoordinator(navigationController: navigationController ?? UINavigationController())
+        coordinator.start(item: item)
     }
 }
 

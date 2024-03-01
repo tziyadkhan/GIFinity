@@ -5,7 +5,6 @@
 //  Created by Ziyadkhan on 16.01.24.
 //
 
-import Foundation
 import UIKit
 import Alamofire
 import SDWebImage

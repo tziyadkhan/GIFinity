@@ -48,13 +48,14 @@ extension StickerPageController: UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.stickerItems[indexPath.item]
         let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
                                            avatar: selectedItem.user?.avatarURL ?? "",
                                            username: selectedItem.username ?? "")
-        controller.selectedItem = selectedGIF
-        navigationController?.show(controller, sender: nil)
+//        controller.selectedItem = selectedGIF
+//        navigationController?.show(controller, sender: nil)
+        showSelectedItem(item: selectedGIF)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -95,5 +96,10 @@ extension StickerPageController {
         refreshControl.tintColor = .red
         refreshControl.backgroundColor = .stickerCell
         stickerCollection.refreshControl = refreshControl
+    }
+    
+    func showSelectedItem(item: SelectedGifModel) {
+        let coordinator = SelectedItemCoordinator(navigationController: navigationController ?? UINavigationController())
+        coordinator.start(item: item)
     }
 }

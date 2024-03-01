@@ -48,15 +48,16 @@ extension TrendingPageController: UICollectionViewDelegate,
     }
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.trendingGifItems[indexPath.item]
         let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
                                            avatar: selectedItem.user?.avatarURL ?? "",
                                            username: selectedItem.username ?? "",
                                            imageWidth: selectedItem.images?.original?.width,
                                            imageHeight: selectedItem.images?.original?.height)
-        controller.selectedItem = selectedGIF
-        navigationController?.show(controller, sender: nil)
+        showSelectedItem(item: selectedGIF)
+//        controller.selectedItem = selectedGIF
+//        navigationController?.show(controller, sender: nil)
     }
     
     
@@ -98,5 +99,10 @@ extension TrendingPageController {
         refreshControl.tintColor = .red
         refreshControl.backgroundColor = .trendingCell
         trendingCollection.refreshControl = refreshControl
+    }
+    
+    func showSelectedItem(item: SelectedGifModel) {
+        let coordinator = SelectedItemCoordinator(navigationController: navigationController ?? UINavigationController())
+        coordinator.start(item: item)
     }
 }

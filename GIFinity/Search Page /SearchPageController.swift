@@ -62,15 +62,16 @@ extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.searchedGifItem[indexPath.item]
         let selectedGIF = SelectedGifModel(
             selectedImage: selectedItem.images?.original?.url ?? "",
             avatar: selectedItem.user?.avatarURL ?? "",
             username: selectedItem.username ?? ""
         )
-        controller.selectedItem = selectedGIF
-        navigationController?.show(controller, sender: nil)
+        showSelectedItem(item: selectedGIF)
+//        controller.selectedItem = selectedGIF
+//        navigationController?.show(controller, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -100,7 +101,12 @@ extension SearchPageController {
     
     func touchGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-                tapGesture.cancelsTouchesInView = false // Allows touch event to pass through to the view hierarchy
+                tapGesture.cancelsTouchesInView = false
                 view.addGestureRecognizer(tapGesture)
+    }
+    
+    func showSelectedItem(item: SelectedGifModel) {
+        let coordinator = SelectedItemCoordinator(navigationController: navigationController ?? UINavigationController())
+        coordinator.start(item: item)
     }
 }

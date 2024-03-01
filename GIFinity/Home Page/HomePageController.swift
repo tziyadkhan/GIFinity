@@ -22,8 +22,9 @@ class HomePageController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SearchPageController.self)") as! SearchPageController
-        navigationController?.show(controller, sender: nil)
+        showSearchPage()
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SearchPageController.self)") as! SearchPageController
+//        navigationController?.show(controller, sender: nil)
     }
     
     @IBAction func categorySelection(_ sender: UISegmentedControl) {
@@ -52,5 +53,10 @@ extension HomePageController {
             .foregroundColor: UIColor.white,
             .font: UIFont.systemFont(ofSize: 13, weight: .semibold)]
         categorySegmentOutlet.setTitleTextAttributes(titleTextAttributes, for: .normal)
+    }
+    
+    func showSearchPage() {
+        let coordinator = SearchPageCoordinator(navigationController: navigationController ?? UINavigationController())
+        coordinator.start()
     }
 }
