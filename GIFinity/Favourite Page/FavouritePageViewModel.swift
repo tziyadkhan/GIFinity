@@ -15,7 +15,6 @@ class FavouritePageViewModel {
     var favouriteItems: [FavouriteModel]? = []
     var success: (() -> Void)?
     
-    
     func getUserFavourites() {
         let favouritesCollection = database.collection("Favourites")
         favouritesCollection.whereField("uid", isEqualTo: userUID).addSnapshotListener { [weak self] snapshot, error in

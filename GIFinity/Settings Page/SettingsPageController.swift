@@ -26,25 +26,21 @@ class SettingsPageController: UIViewController {
         urlHelper.gifinitySupport()
     }
     
-    
     @IBAction func privacySafetyButtonTapped(_ sender: Any) {
         urlHelper.privacyTerms()
     }
     
-    
     @IBAction func logoutButtonTapped(_ sender: Any) {
         showAlert(title: "Warning", message: "Are you sure you want to exit?")
-        
     }
-    
 }
 
+//MARK: Functions
 extension SettingsPageController {
     
     func configUI() {
         let backgroundGIF = UIImage.gifImageWithName("settings")
         background.image = backgroundGIF
-        
         title = "Settings"
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes

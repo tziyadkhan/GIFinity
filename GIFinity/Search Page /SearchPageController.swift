@@ -31,23 +31,16 @@ class SearchPageController: UIViewController {
                 self.searchCollection.reloadData()
                 self.view.endEditing(true)
                 sender.resignFirstResponder()
-
             }
         } else {
             viewmodel.clearItems()
             searchCollection.reloadData()
         }
     }
-    
-    @objc func dismissKeyboard() {
-            view.endEditing(true)
-        }
-    
 }
 
 //MARK: Collection Functions
-extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSource,
-        CHTCollectionViewDelegateWaterfallLayout {
+extension SearchPageController: UICollectionViewDelegate,UICollectionViewDataSource,CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewmodel.searchedGifItem.count
@@ -62,7 +55,6 @@ extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.searchedGifItem[indexPath.item]
         let selectedGIF = SelectedGifModel(
             selectedImage: selectedItem.images?.original?.url ?? "",
@@ -70,8 +62,6 @@ extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSo
             username: selectedItem.username ?? ""
         )
         showSelectedItem(item: selectedGIF)
-//        controller.selectedItem = selectedGIF
-//        navigationController?.show(controller, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -81,7 +71,6 @@ extension SearchPageController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         return CGSize(width: width, height: height)
     }
-    
 }
 
 //MARK: Functions
@@ -97,6 +86,10 @@ extension SearchPageController {
     func configUI() {
         let icon = UIImage.gifImageWithName("icon")
         iconGif.image = icon
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func touchGesture() {

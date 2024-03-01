@@ -9,11 +9,9 @@ import Foundation
 
 class SelectedItemManager:SelectedItemUseCase {
     func getTrendingGifList(offsetNumber: Int, completion: @escaping ((TrendingModel?, Error?) -> Void)) {
-//        let url = NetworkHelper.join(endpoint: TrendingEndpoint.trendingGifs.rawValue)
         let url = NetworkHelper.join(endpoint: TrendingEndpoint.trendingGifs.rawValue) + "&offset=\(offsetNumber)"
         NetworkManager.request(model: TrendingModel.self,
                                endpoint: url,
                                completion: completion)
     }
-
 }

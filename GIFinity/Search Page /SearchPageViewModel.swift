@@ -14,15 +14,11 @@ class SearchPageViewModel {
     var error: ((String) -> Void)?
     private let manager = SearchManager()
     
-    func getSearchItem(
-        searchText: String,
-        completion: @escaping () -> Void
-    ) {
+    func getSearchItem(searchText: String, completion: @escaping () -> Void) {
         manager.getSearchItems(searchText: searchText) { data, error in
             if let error {
                 print("test error-")
                 self.error?(error.localizedDescription)
-            
             } else if let data {
                 print("test success+")
                 self.searchedGifItem = data.data

@@ -12,7 +12,6 @@ class ImageCollecttionCell: UICollectionViewCell {
     
     let gifImage: UIImageView = {
         let gif = UIImageView()
-//        gif.backgroundColor = .green
         gif.layer.cornerRadius = 5
         gif.layer.masksToBounds = true
         gif.contentMode = .scaleAspectFill
@@ -22,10 +21,6 @@ class ImageCollecttionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-//        contentView.addSubview(gifImage)
-//        contentView.clipsToBounds = true
-//        contentView.isSkeletonable = true
         
         configureConstraint()
     }
@@ -40,9 +35,6 @@ class ImageCollecttionCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-//        gifImage.image = nil
-//        gifImage.isSkeletonable = true
     }
     
     fileprivate func configureConstraint() {

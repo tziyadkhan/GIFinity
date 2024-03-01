@@ -21,10 +21,6 @@ class LoginAdapter {
         switch loginType {
         case .google:
             googleLogin()
-        case .facebook:
-            facebookLogin()
-        case .apple:
-            appleLogin()
         }
     }
     
@@ -41,18 +37,8 @@ class LoginAdapter {
             }
         }
     }
-    
-    fileprivate func facebookLogin() {
-        
-    }
-    
-    fileprivate func appleLogin() {
-        
-    }
 }
 
 enum LoginType {
     case google
-    case facebook
-    case apple
 }

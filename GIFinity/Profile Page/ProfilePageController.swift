@@ -19,26 +19,16 @@ class ProfilePageController: UIViewController {
     private let viewmodel = ProfilePageViewModel()
     private let refreshControl = UIRefreshControl()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configUI()
         configCollection()
         configViewModel()
-        
     }
-    
-    @objc func pullToRefresh() {
-        viewmodel.reset()
-        favouriteCollection.reloadData()
-        viewmodel.getUserFavourites()
-    }
-    
+  
     @IBAction func settings(_ sender: Any) {
         showSettingsPage()
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "SettingsPageController") as! SettingsPageController
-//        navigationController?.show(controller, sender: nil)
     }
 }
 
@@ -78,6 +68,12 @@ extension ProfilePageController {
         profileImage.image = profile
     }
     
+    @objc func pullToRefresh() {
+        viewmodel.reset()
+        favouriteCollection.reloadData()
+        viewmodel.getUserFavourites()
+    }
+    
     func configCollection() {
         layout.columnCount = 2
         layout.itemRenderDirection = .leftToRight
@@ -96,11 +92,9 @@ extension ProfilePageController {
             self.favouriteCollection.reloadData()
             self.refreshControl.endRefreshing()
         }
-        
         viewmodel.successFullname = { name in
             self.fullnameLabelText.text = name
         }
-        
         viewmodel.getUserFavourites()
         viewmodel.getUserInfo()
     }

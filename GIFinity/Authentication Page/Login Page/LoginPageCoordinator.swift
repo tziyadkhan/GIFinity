@@ -5,7 +5,6 @@
 //  Created by Ziyadkhan on 01.03.24.
 //
 
-import Foundation
 import UIKit
 
 class LoginPageCoordinator: Coordinator {

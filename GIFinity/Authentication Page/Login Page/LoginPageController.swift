@@ -16,7 +16,6 @@ class LoginPageController: UIViewController {
     @IBOutlet weak var loginEmailTextField: UITextField!
     
     private var adapter: LoginAdapter?
-    private let database = DatabaseAdapter()
     private let urlHelper = URLs()
     private var userEmail: String?
     
@@ -81,15 +80,6 @@ extension LoginPageController {
             }
         }
     }
-    
-//    func signUP() {
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "RegistrationPageController") as! RegistrationPageController
-//        controller.onLogin = { [weak self] email, password in
-//            self?.loginEmailTextField.text = email
-//            self?.loginPasswordTextField.text = password
-//        }
-//        navigationController?.show(controller, sender: nil)
-//    }
     
     func showRegistrationPage() {
         let coordinator = RegistrationPageCoordinator(navigationController: navigationController ?? UINavigationController(),

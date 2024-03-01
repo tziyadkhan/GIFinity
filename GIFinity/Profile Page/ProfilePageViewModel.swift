@@ -13,7 +13,6 @@ class ProfilePageViewModel {
     let userUID = CurrentUserDetect.currentUser()
     let database = Firestore.firestore()
     var favouriteItems: [FavouriteModel]? = []
-    
     var success: (() -> Void)?
     var successFullname: ((String) -> Void)?
     

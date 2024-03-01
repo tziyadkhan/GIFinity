@@ -9,7 +9,6 @@ import UIKit
 import CHTCollectionViewWaterfallLayout
 import Photos
 
-
 class SelectedItemPageController: UIViewController {
     
     @IBOutlet weak var selectedGIFImageView: UIImageView!
@@ -22,7 +21,6 @@ class SelectedItemPageController: UIViewController {
     private let viewmodel = SelectedItemViewModel()
     private let refreshControl = UIRefreshControl()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,11 +29,7 @@ class SelectedItemPageController: UIViewController {
         configureViewModel()
     }
     
-    @objc func pullToRefresh() {
-        viewmodel.reset()
-        relatedGIFCollection.reloadData()
-        viewmodel.getItems()
-    }
+   
     
     @IBAction func favouriteButton(_ sender: Any) {
         viewmodel.addItems(data: selectedItem!)
@@ -68,14 +62,11 @@ extension SelectedItemPageController: UICollectionViewDelegate,UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.trendingGifItems[indexPath.item]
         let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
                                            avatar: selectedItem.user?.avatarURL ?? "",
                                            username: selectedItem.username ?? "")
         showSelectedItem(item: selectedGIF)
-//        controller.selectedItem = selectedGIF
-//        navigationController?.show(controller, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -89,6 +80,12 @@ extension SelectedItemPageController: UICollectionViewDelegate,UICollectionViewD
 
 //MARK: Functions
 extension SelectedItemPageController {
+    
+    @objc func pullToRefresh() {
+        viewmodel.reset()
+        relatedGIFCollection.reloadData()
+        viewmodel.getItems()
+    }
     
     func configureCollection() {
         layout.columnCount = 2
@@ -110,20 +107,17 @@ extension SelectedItemPageController {
     
     
     func saveGIF() {
-        //        DispatchQueue.main.async {
         if let gifData = try? Data(contentsOf: URL(string: self.selectedItem?.selectedImage ?? "")!) {
             self.viewmodel.saveGifToPhotosHelper(gifData: gifData)
             AlertView.showAlert(view: self, title: "Saved", message: "Your GIF has been saved to your photos")
         } else {
             AlertView.showAlert(view: self, title: "Error", message: "Failed to save GIF")
         }
-        //        }
     }
     
     func shareButton() {
         guard let image = selectedGIFImageView.image,
               let url = selectedItem?.selectedImage else {return}
-        
         let shareSheetVC = UIActivityViewController (activityItems: [image, url],
                                                      applicationActivities: nil)
         present(shareSheetVC, animated: true)

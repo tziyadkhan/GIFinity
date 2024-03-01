@@ -9,19 +9,17 @@ import Foundation
 import Photos
 import FirebaseFirestoreInternal
 
-
 class SelectedItemViewModel {
     
     var selectedItem: SelectedGifModel?
     let database = Firestore.firestore()
     let userUID = CurrentUserDetect.currentUser()
-    
     var trendingGifItems = [TrendingResult]()
     private let manager = SelectedItemManager()
     var success: (() -> Void)?
     var error: ((String?) -> Void)?
     
-    //Other GIF's ucun random offset
+    //Other GIF's ucun random gif-ler mentiqi
     func getItems() {
         manager.getTrendingGifList(offsetNumber: Int.random(in: 0..<1400)) { data, errorMessage in
             if let errorMessage {

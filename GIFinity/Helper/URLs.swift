@@ -13,7 +13,6 @@ class URLs {
     
     func callURL(urlType: URLType) {
         switch urlType {
-            
         case .termsOfService:
             termsOfService()
         case .privacyTerms:

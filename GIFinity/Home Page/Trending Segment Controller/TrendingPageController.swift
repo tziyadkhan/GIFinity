@@ -48,7 +48,6 @@ extension TrendingPageController: UICollectionViewDelegate,
     }
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SelectedItemPageController.self)") as! SelectedItemPageController
         let selectedItem = viewmodel.trendingGifItems[indexPath.item]
         let selectedGIF = SelectedGifModel(selectedImage: selectedItem.images?.original?.url ?? "",
                                            avatar: selectedItem.user?.avatarURL ?? "",
@@ -56,11 +55,7 @@ extension TrendingPageController: UICollectionViewDelegate,
                                            imageWidth: selectedItem.images?.original?.width,
                                            imageHeight: selectedItem.images?.original?.height)
         showSelectedItem(item: selectedGIF)
-//        controller.selectedItem = selectedGIF
-//        navigationController?.show(controller, sender: nil)
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let width = Int(viewmodel.trendingGifItems[indexPath.item].images?.original?.width ?? "100"),
@@ -80,7 +75,6 @@ extension TrendingPageController {
     
     func configureViewModel() {
         viewmodel.error = { error in
-//            print(error!)
         }
         viewmodel.success = {
             self.trendingCollection.reloadData()

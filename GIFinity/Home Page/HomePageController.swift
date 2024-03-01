@@ -23,8 +23,6 @@ class HomePageController: UIViewController {
     
     @IBAction func searchButton(_ sender: Any) {
         showSearchPage()
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "\(SearchPageController.self)") as! SearchPageController
-//        navigationController?.show(controller, sender: nil)
     }
     
     @IBAction func categorySelection(_ sender: UISegmentedControl) {

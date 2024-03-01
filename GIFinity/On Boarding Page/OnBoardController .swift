@@ -19,8 +19,6 @@ class OnBoardController: UIViewController {
     }
     
     @IBAction func getStartedButton(_ sender: Any) {
-//        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginPageController") as! LoginPageController
-//        navigationController?.show(controller, sender: nil)
         showAuthPage()
         setRoot()
     }

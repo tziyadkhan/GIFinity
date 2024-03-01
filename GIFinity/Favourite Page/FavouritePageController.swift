@@ -89,5 +89,3 @@ extension FavouritePageController {
         viewmodel.getUserFavourites()
     }
 }
-
-

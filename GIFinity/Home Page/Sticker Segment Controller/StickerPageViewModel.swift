@@ -7,10 +7,10 @@
 
 import Foundation
 class StickerPageViewModel {
+    
     var stickerItems = [TrendingResult]()
     var stickerData: TrendingModel?
     private let manager = StickerManager()
-    
     var success: (() -> Void)?
     var error: ((String?) -> Void)?
     

@@ -20,6 +20,4 @@ class SelectedItemCoordinator {
         controller.selectedItem = item
         navigationController.show(controller, sender: nil)
     }
-    
-    
 }

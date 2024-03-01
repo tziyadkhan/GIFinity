@@ -74,7 +74,6 @@
 		908D6D622B6CC84C009F71E9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 908D6D612B6CC84C009F71E9 /* GoogleSignInSwift */; };
 		908D6D662B6CCA6B009F71E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908D6D652B6CCA6B009F71E9 /* GoogleService-Info.plist */; };
 		908D6D692B6CD604009F71E9 /* LoginAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D682B6CD604009F71E9 /* LoginAdapter.swift */; };
-		908D6D6E2B6CDF36009F71E9 /* DatabaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D6D2B6CDF36009F71E9 /* DatabaseAdapter.swift */; };
 		908D6D712B6CE113009F71E9 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D702B6CE113009F71E9 /* URLs.swift */; };
 		908D6D7B2B6E3620009F71E9 /* SelectedItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D7A2B6E3620009F71E9 /* SelectedItemViewModel.swift */; };
 		908D6D7D2B6E3639009F71E9 /* SelectedItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D7C2B6E3639009F71E9 /* SelectedItemManager.swift */; };
@@ -146,7 +145,6 @@
 		908D6D1D2B6B9D85009F71E9 /* RegistrationPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageController.swift; sourceTree = "<group>"; };
 		908D6D652B6CCA6B009F71E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		908D6D682B6CD604009F71E9 /* LoginAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAdapter.swift; sourceTree = "<group>"; };
-		908D6D6D2B6CDF36009F71E9 /* DatabaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAdapter.swift; sourceTree = "<group>"; };
 		908D6D702B6CE113009F71E9 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		908D6D7A2B6E3620009F71E9 /* SelectedItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItemViewModel.swift; sourceTree = "<group>"; };
 		908D6D7C2B6E3639009F71E9 /* SelectedItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItemManager.swift; sourceTree = "<group>"; };
@@ -263,9 +261,6 @@
 				906407E02B51279F007C3ECB /* Favourite Page */,
 				906407E52B512805007C3ECB /* Profile Page */,
 				9038224F2B7CA4CB00BB7B93 /* Settings Page */,
-				90616E082B493FFF0023A2E7 /* AppDelegate.swift */,
-				90616E0A2B493FFF0023A2E7 /* SceneDelegate.swift */,
-				90616E0E2B493FFF0023A2E7 /* Main.storyboard */,
 				90616E222B4951550023A2E7 /* Helper */,
 				909475792B56D1CA00FFF157 /* Cells */,
 				90616E1F2B494EDE0023A2E7 /* Gifs */,
@@ -273,6 +268,9 @@
 				908D6D672B6CD5B7009F71E9 /* Adapter */,
 				906407F52B51344A007C3ECB /* Data Manager */,
 				906407EB2B5128DD007C3ECB /* Tab Bar Controller */,
+				90616E082B493FFF0023A2E7 /* AppDelegate.swift */,
+				90616E0A2B493FFF0023A2E7 /* SceneDelegate.swift */,
+				90616E0E2B493FFF0023A2E7 /* Main.storyboard */,
 				90616E112B4940000023A2E7 /* Assets.xcassets */,
 				90616E132B4940000023A2E7 /* LaunchScreen.storyboard */,
 				90616E162B4940000023A2E7 /* Info.plist */,
@@ -394,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				908D6D682B6CD604009F71E9 /* LoginAdapter.swift */,
-				908D6D6D2B6CDF36009F71E9 /* DatabaseAdapter.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -602,7 +599,6 @@
 				909475822B56D51A00FFF157 /* ImageExtension.swift in Sources */,
 				90C8BA652B5A5A760099A967 /* TrendingPageController.swift in Sources */,
 				90C8BA6D2B5A7D230099A967 /* StickerPageViewModel.swift in Sources */,
-				908D6D6E2B6CDF36009F71E9 /* DatabaseAdapter.swift in Sources */,
 				908D6D7D2B6E3639009F71E9 /* SelectedItemManager.swift in Sources */,
 				908D6D7B2B6E3620009F71E9 /* SelectedItemViewModel.swift in Sources */,
 				908D6D1E2B6B9D85009F71E9 /* RegistrationPageController.swift in Sources */,
