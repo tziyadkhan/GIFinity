@@ -66,6 +66,7 @@ extension ProfilePageController {
         
         let profile = UIImage.gifImageWithName("profileGIF")
         profileImage.image = profile
+        title = "Profile"
     }
     
     @objc func pullToRefresh() {
