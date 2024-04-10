@@ -36,8 +36,13 @@ class ProfilePageController: UIViewController {
 extension ProfilePageController: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewmodel.favouriteItems?.count ?? 10
-    }
+        if (self.viewmodel.favouriteItems?.count == 0) {
+            self.favouriteCollection.setEmptyMessage(image:  UIImage.gifImageWithName("emptyCollection"))
+        } else {
+            self.favouriteCollection.restore()
+        }
+
+        return self.viewmodel.favouriteItems?.count ?? 10    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollecttionCell.identifier, for: indexPath) as! ImageCollecttionCell

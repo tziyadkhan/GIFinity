@@ -35,7 +35,15 @@ class FavouritePageController: UIViewController {
 extension FavouritePageController: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewmodel.favouriteItems?.count ?? 10
+        
+        
+        if (self.viewmodel.favouriteItems?.count == 0) {
+            self.favoriteCollection.setEmptyMessage(image:  UIImage.gifImageWithName("emptyCollection"))
+        } else {
+            self.favoriteCollection.restore()
+        }
+
+        return self.viewmodel.favouriteItems?.count ?? 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
